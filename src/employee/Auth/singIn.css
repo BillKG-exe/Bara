@@ -1,0 +1,275 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 1000px;/*2000px*/
+    height: 100vh;/*2000px*/
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #6400e4, #3949AB);
+    top: -10%;
+    right: 48%;
+    transform: translateY(-50%);
+}
+
+.info {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    height: 100vh;
+    left: 15%;
+    padding: 25px;
+    color: white;
+    /* background-color: aqua; */
+}
+
+.text {
+    display: block;
+    width: 80%;
+    color: white;
+    font-size: small;
+    letter-spacing: 1px;
+    line-height: 25px;
+    text-align: center;
+    margin: auto;
+}
+
+.quote {
+    font-size: large;
+}
+
+.MuiButton-label {
+    color: white;
+}
+
+.info img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin: 15px auto 15px auto;
+}
+
+#signUp-btn {
+    margin: 15px auto;
+    border-radius: 100px;
+    border: 2px solid white;
+}
+
+#typography {
+    margin: 15px auto 25px;
+}
+
+.signIn-form {
+    position: absolute;
+    width: 35%;
+    height: auto;
+    top: 50%;
+    left: 75%;
+    padding: 15px auto;
+    margin: auto;
+    transform: translate(-50%, -50%);
+}
+
+.textField {
+    display: flex;
+    width: 300px;
+    margin: 45px auto;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    width: 300px;
+    height: 54px;
+    margin: 25px auto;
+    align-items: flex-end;
+    background-color: white;  
+}
+
+.error-msg-spot-signIn {
+    display: block;
+    width: 300px;
+    height: auto;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.input-fields {
+    display: flex;
+    width: 300px;
+    height: 45px;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;/*#ccc*/
+    outline: none;
+}
+
+.input-fields span {
+    position: absolute;
+    top: 0;
+    color: #cacaca;/* tried this color #B9B3D0 */
+    font-size: small;
+    padding: 2px;
+    margin-left: 10px;
+    background-color: white;
+}
+
+.icon {
+    display: flex;
+    font-size: 21px;
+    color: #ccc;
+    margin: auto 10px auto 10px;
+}
+
+input::-ms-reveal, input::-ms-clear {
+  display: none;
+}
+
+.input-fields input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+}
+
+
+.input-container:hover > .input-fields span {
+    color: #3f51b5;
+    transition-duration: 0.4s;
+}
+
+.input-container:hover > .input-fields .icon {
+    color: #3f51b5;
+    transition-duration: 0.4s;
+}
+
+.input-container:hover > .input-fields {
+    border: 1px solid #3f51b5;
+    transition-duration: 0.4s;
+}
+
+#signIn-btn {
+    display: block;
+    width: 90px;
+    padding: 10px;
+    margin: auto;
+    color: #3f51b5;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid #3f51b5;
+    outline: none;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+#signIn-btn-link {
+    color: white;
+}
+
+#signIn-btn:hover {
+    color: white;
+    background-color: #3f51b5;
+    transition-duration: .4s;
+}
+
+/* .error {
+    display: block;
+    width: 300px;
+    height: auto;
+    padding: 15px;
+    font-size: small;
+    text-align: center;
+    margin: auto auto 15px auto;
+    color: #d50000;
+    border-radius: 5px;
+} */
+
+@media only screen and (max-width: 845px) {
+    .info {
+        left: 10%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .info {
+        left: 5%;
+    }
+
+    .signIn-form {
+        height: 50%;
+    }
+
+    #signIn-btn {
+        width: 125px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .container { 
+        position: fixed;
+    }
+
+    .container::before {
+        width: 1000px;
+    }
+
+    .info {
+        width: 100%;
+        height: 100vh;
+        left: 0;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+
+    .info img {
+        display: none;
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+
+    .signIn-form {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        margin: auto;
+
+    }
+    
+    .text {
+        width: 100%;
+        color: #f0f0f0;
+    }
+
+    .text div {
+        display: none;
+    }
+
+    #signUp-btn {
+        margin: auto;
+        border-radius: 5px;
+        border: none;
+    }
+
+    input {
+        font-size: medium;
+    }
+
+    /* .error {
+        width: 80%;
+    } */
+}

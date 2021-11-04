@@ -1,0 +1,128 @@
+.search-comp {
+    width: 100%;
+    height: 100vh;
+    padding-top: 45px;
+    background-color: white;
+}
+
+.map-searchBar {
+    width: 100%;
+    height: 50px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.map-search-container {
+    width: 40%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+}
+.map-search-container > .placehodler {
+    width: 15%;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.map-search-container > .search-box {
+    width: 75%;
+    height: 43px;
+    padding: 15px;
+    padding-left: 25px;
+    letter-spacing: 1px;
+    border: none;
+    background: none;
+}
+
+.map-search-container > .maincontent-search-icon {
+    width: 10%;
+}
+
+.map-searchBar > div > button {
+    width: 100px;
+    height: 45px;
+    color: white;
+    border: none;
+    background-color: #6400e1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search-scroll-view {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.search-scroll-view::-webkit-scrollbar {
+    width: 5px;
+}
+
+.search-scroll-view::-webkit-scrollbar-track {
+    border-radius: 7px;
+    /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.24); */
+    box-shadow: inset 0 0 10px rgba(255, 255, 255);
+}
+
+.search-scroll-view::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: #cacaca;
+}
+
+@media only screen and (max-width: 995px) {
+    .search-comp {
+        width: 100%;
+        height: 100vh;
+        background-color: white;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .search-comp {
+        padding-bottom: 100px;
+        overflow-y: scroll;
+    }
+    .map-searchBar {
+        width: 100%;
+        height: 20%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .map-search-container {
+        width: 90%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: white;
+    }
+    
+    .map-searchBar > div {
+        width: 100%;
+    }
+
+    .map-searchBar > div > button {
+        display: block;
+        width: 90%;
+        height: 45px;
+        font-size: 14px;
+        margin: 10px auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .search-scroll-view {
+        overflow: initial;
+    }
+
+    .job-search-list {
+        padding-bottom: 150px;
+    }   
+}

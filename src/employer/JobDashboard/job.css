@@ -1,0 +1,20 @@
+.report-job-section {
+    width: 100%;
+    display: flex;
+}
+
+.job-posted-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 75%;
+    margin: auto;
+}
+
+.job-posted-section > div {
+   cursor: pointer;
+}
+
+
+/* .job-posted-section > .reminder {
+    justify-content: flex-start;
+} */

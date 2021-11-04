@@ -1,0 +1,138 @@
+.company-login {
+    background: white;
+}
+
+.company-login > .login-container {
+    width: 100%;
+    height: calc(75vh - 55px);     /* calc(100vh - 55px); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: calc(10vh);
+}
+
+.company-login > .login-container > .company-greeting-img-and-form {
+    width: 60%;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > .company-login-greeting-img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form {
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > div {
+    display: block;
+    width: 90%;
+    margin: auto
+}
+
+form > .title {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+form > .greeting-msg {
+    font-size: 13px;
+    color: #7f808c;
+    padding: 10px 0 50px 0;
+}
+
+form > .label {
+    font-size: 12px;
+    color: #7f808c;
+    padding: 0 0 5px 0;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .login-input-container {
+    width: 90%;
+    height: 45px;
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 2px;
+    background-color: #fcfcfc;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .login-input-container > input {
+    width: 90%;
+    height: 45px;
+    padding-left: 15px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: #fcfcfc;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .login-input-container > .login-input-icon {
+    color: #7f808c;
+    width: 10%;
+    padding-right: 15px;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .remember-forgot-container {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .remember-forgot-container > .remember {
+    display: flex;
+    align-items: center;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .remember-forgot-container > .remember > div {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .remember-forgot-container > .forgot-msg {
+    color: #7f808c;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .remember-forgot-container > .forgot-msg:hover {
+    color: black;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > .error-msg {
+    width: 90%;
+    margin: 15px auto;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > button {
+    display: block;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    width: 90%;
+    height: 45px;
+    margin: 45px auto;
+    cursor: pointer;
+    /* opacity: 0.9; */
+    border: none;
+    border-radius: 2px;
+    background-color: #6400e1;
+    box-shadow: 0px 0 5px #6400e1;
+}
+
+.company-login > .login-container > .company-greeting-img-and-form > form > button:hover {
+    opacity: 0.95;
+}

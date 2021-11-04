@@ -1,0 +1,30 @@
+.employer-home {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f0f0f0;
+}
+
+.filter-search-title {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    margin: 25px 0 0 0;
+}
+
+.employer-home-filter {
+    width: 15%;
+    height: 100%;
+    background-color: white;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* .employer-home-candidates {
+
+} */
+
+.employer-home-resume {
+    display: block;
+    width: 40%;
+    height: 45%;
+    margin: 15px auto 0 auto;
+}

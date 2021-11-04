@@ -1,0 +1,43 @@
+.custom-section-card {
+    width: 100%;
+    padding: 25px 15px;
+    border-radius: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #fcfcfc;
+}
+
+.header-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-options > .title {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.options-icons {
+    display: flex;
+    align-items: center;
+}
+
+.options-icons > .icon {
+    cursor: pointer;
+    font-size: 17px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #f0f0f0;
+}
+
+.custom-section-card > .position {
+    color: #111;
+    font-size: 14px;
+}
+
+.custom-section-card > .date, .custom-section-card > .location {
+    color: #7f808c;
+    font-size: 14px;
+    padding-top: 5px;
+}

@@ -1,0 +1,78 @@
+.favorite-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    height: 115px;
+    margin: 15px auto;
+    background-color: white;
+}
+
+.favorite-card-icon {
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.favorite-card-icon > img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.favorite-card-info {
+    width: 85%;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.favorite-line-side {
+    display: flex;
+    margin: 5px auto;
+    align-items: center;
+    justify-content: space-between;   
+}   
+
+.favorite-job-company {
+    height: 100%;
+    color: #aab0b7;
+    font-size: 15px;
+}
+
+.favorite-job-logo {
+    height: 100%;
+    color: #6400e1;
+    font-weight: 400;
+}
+
+.favorite-job-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.favorite-job-salary {
+    color: #6400e1;
+    font-weight: bold;
+}
+
+.favorite-card-location {
+    color: #7f808c ;
+    font-size: 12px;
+}
+
+.favorite-job-status {
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.favorite-job-date {
+    color: #ccc;
+    font-size: 10px;
+    margin-top: 15px;
+}

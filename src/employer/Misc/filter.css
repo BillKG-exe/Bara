@@ -1,0 +1,15 @@
+.filter {
+    min-height: calc(100vh - 55px);
+    height: auto;
+    padding-left: 25px;
+    background-color: #fff;
+}
+
+.checkbox-category > .title {
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 25px;
+    padding-left: 15px;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+}

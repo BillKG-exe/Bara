@@ -1,0 +1,54 @@
+.job-card {
+    width: 325px;
+    /* height: 200px; */
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #fcfcfc;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    transition-duration: 0.3s;
+}
+
+.job-card:hover {
+    border: 1px solid #ccc;
+}
+
+.job-card > .card-header {
+    display: flex;
+    align-items: center;
+}
+
+.job-card > .card-header > .title {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.job-card > .card-header > .number-of-applicant {
+    color: #ccc;
+    font-size: 10px;
+}
+
+.job-card > .qualifications {
+    color: #7f887f;
+    font-size: 13px;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+.job-card > .qualifications > div {
+    display: flex;
+    
+    margin: 5px 0;
+}
+
+#bullet {
+    margin-right: 5px;
+}
+
+.job-card > .date-posted {
+    display: flex;
+    color: #7f887f;
+    font-size: 10px;
+    justify-self: flex-end;
+}

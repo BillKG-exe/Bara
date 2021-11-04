@@ -1,0 +1,48 @@
+.skill-box-update {
+    width: 100%;
+    padding: 15px 40px;
+    margin-bottom: 24px;
+    background-color: white;
+}
+
+.add-skill {
+    display: flex;
+    align-items: center;
+}
+
+.add-skill > input {
+    color: #262626;
+    min-width: 150px;
+    width: 30%;
+    height: 35px;
+    padding-left: 15px;
+    margin-right: 5px;
+    border: 1px solid #f0f0f0;
+}
+
+.add-skill > input:focus {
+    border: 2px solid #efefef;
+}
+
+.add-skill > .add-skill-btn {
+    cursor: pointer;
+    color: #262626;
+    width: fit-content;
+    height: 35px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+.skill-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    min-height: 150px;
+    height: auto;
+    padding: 15px;
+    margin: 24px auto;
+    border: none;
+    background-color: #fcfcfc;
+}

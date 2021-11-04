@@ -1,0 +1,45 @@
+.report-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 2px solid #f0f0f0;
+    background-color: #fcfcfc;
+}
+
+.report-header > div {
+    color: #7f808c;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 30px;
+
+}
+
+.report-navlink {
+    color: #7f808c;
+    font-size: 14px;
+    padding: 15px 6px;
+    border-bottom: 2px solid transparent;
+}
+
+.report-header > .flex-space {
+    flex: 1;
+    border-bottom: none;
+}
+
+.report-header > img {
+    justify-self: flex-end;
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.report-header > div > .active {
+    color: #6400e1;
+    font-weight: 500;
+    padding: 15px 6px;
+    border-bottom: 2px solid #6400e1;
+    transition-duration: 0.3s;
+}

@@ -1,0 +1,21 @@
+.custom-section-setting {
+    width: 100%;
+    height: auto;
+    padding: 15px 40px;
+    margin-top: 40px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.custom-section-header {
+    font-size: 18px;
+    padding: 15px 0 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-section-header > .icon { 
+    cursor: pointer;
+    font-size: 24px
+}

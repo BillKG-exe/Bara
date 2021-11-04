@@ -1,0 +1,87 @@
+.candidate-card {
+    width: 475px;
+    height: auto;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    background-color: white;
+}
+
+.candidate-card:hover {
+    border: 1px solid #ccc;
+    background-color: #fcfcfc;
+    transition-duration: 0.3s;
+}
+
+.candidate-card > .name-and-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.candidate-card > .name-and-img > img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.candidate-card > .name-and-img > .name {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.candidate-card > .place {
+    color: #7f887f;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.candidate-card > .degree,
+.candidate-card > .jobPosition {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.candidate-card > .jobPosition {
+    color: #7f887f;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.candidate-card > .jobPosition > span {
+    color: black;
+    font-weight: 500;
+}
+
+.candidate-card > .work-experiences, .candidate-card > .education-container{
+    margin-top: 10px;
+}
+
+.work-experience, .education{
+    display: flex;
+    align-items: center;
+    margin: 2px 0;
+    white-space: 15px;
+}
+
+.work-experience > .jobTitle, .education > .education-degree {
+    font-size: 14px;
+}
+
+.work-experience > .enterprise, .education > .education-establishment {
+    color: #7f887f;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.candidate-card > .hiring-status {
+    color: #6400e1;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.candidate-card > .hiring-status > span {
+    font-weight: 600;
+}

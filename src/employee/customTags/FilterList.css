@@ -1,0 +1,18 @@
+.filterList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.filterList > select {
+    font-size: 14px;
+    padding: 10px;
+    margin: 15px;
+    border: 2px solid #ccc;
+}
+
+/* .filterList > select > option {
+    text-align: center;
+    height: 45px;
+} */

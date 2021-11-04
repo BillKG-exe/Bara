@@ -1,0 +1,47 @@
+.candidate-section {
+    width: 100%;
+    display: flex;
+    background-color: #fcfcfc; 
+}
+
+.filter-section {
+    width: 20%;
+    min-height: calc(100vh - 105px);
+    padding: 0 15px;
+    background-color: white;
+}
+
+.candidate-list-section {
+    width: 475px;
+    height: auto;
+}
+
+.candidate-section > div > .resume-section {
+    width: 100%;
+    background-color: white;
+    box-shadow: none;
+}
+
+.status-btn {
+    width: 80%;
+    height: auto;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.status-btn > button {
+    color: white;
+    font-size: 14px;
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    border: none;
+    background-color: #6400e1;
+    box-shadow: 0 0 5px #6400e1;
+}
+
+.status-btn > button:hover {
+    opacity: 0.9;
+}

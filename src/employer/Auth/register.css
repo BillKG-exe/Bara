@@ -1,0 +1,107 @@
+.register-container {
+    width: 100%;
+    height: calc(100vh - 55px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container > .company-register-component {
+    width: 60%;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.company-register-component > img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.company-register-component > form {
+    width: 50%;
+    height: 100%;
+    padding: 15px;
+    overflow-y: scroll;
+}
+
+.company-register-component > form::-webkit-scrollbar {
+    width: 6px;
+}
+
+.company-register-component > form::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
+.company-register-component > form::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+.company-register-component > form  > div {
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+
+.company-register-component > form  > .register-input-container {
+    width: 90%;
+    height: 35px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #f0f0f0;
+    /* border-bottom: 2px solid #f0f0f0; */
+    background-color: none;
+}
+
+.company-register-component > form  > .greeting-msg {
+    padding: 10px 0 30px 0;
+}
+
+.company-register-component > form  > .label {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.company-register-component > form  > .register-input-container > input {
+    width: 90%;
+    height: 33px;
+    padding-left: 15px;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.company-register-component > form  > .register-input-container > .input-icon {
+    color: #ccc;
+    font-size: 15px;
+}
+
+.company-register-component > form > button {
+    display: block;
+    width: 90%;
+    height: 45px;
+    margin: 5px auto;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: #6400e1;
+    box-shadow: 0px 0 5px #6400e1;
+}
+
+.company-register-component > form > p {
+    color: red;
+    display: block;
+    width: 90%;
+    padding: 5px 0;
+    margin: auto;
+    font-size: 12px;
+}

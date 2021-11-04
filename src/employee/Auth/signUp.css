@@ -1,0 +1,254 @@
+.sign-up-h {
+    font-size: xx-large;
+    font-weight: 300;
+    text-align: center;
+    margin: 25px auto; /* Was 45px auto*/
+}
+
+.signUpContainer {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 150px); /*was 100vh - 60px*/
+    align-items: center;
+    justify-content: center;
+}
+
+.content-Container {
+    display: flex;
+    width: 65%;/*ici*/
+    /* height: 50%; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.allura {
+    width: 45%;
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+}
+
+.signUp-form-container {
+    width: 50%;
+    background: white;
+}
+
+.signUpForm {
+    position: relative;
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+
+.error-msg-spot {
+    width: 100%;
+    height: 45px;
+}
+
+.signUpForm > label {
+    font-size: x-small;
+}
+
+/* .required-star {
+    color: hsl(348, 100%, 55%);
+    font-size: 13px;
+} */
+
+/*---------------------------------------------------------------------------*/
+.signUp-icon {
+    color: #7f808c ;
+}
+/*---------------------------------------------------------------------------*/
+
+.singUp-inputField {
+    display: flex;
+    width: 95%;
+    height: 35px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto 15px auto;
+    background-color: white;
+    border-bottom: 2px solid #f0f0f0;
+    transition-duration: .3s;
+}
+
+.singUp-inputField:hover {
+    width: 100%;
+    border-bottom: 2px solid #3f51b5;
+}
+
+.singUp-inputField:hover > .signUp-icon {
+    color: #3f51b5;
+    transition-duration: .3s;
+}
+
+.error-signUp-label {
+    color: #ff1744;
+}
+
+.error-signUp-input {
+    display: flex;
+    width: 95%;
+    height: 35px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto 15px auto;
+    background-color: white;
+    transition-duration: .4s;
+    border-bottom: 2px solid #ff1744; 
+}
+
+.error-signUp-input > .signUp-error-icon {
+    color: #ff1744; 
+}
+
+.error-signUp-input:hover {
+    border-bottom: 2px solid #ff1744; 
+}
+
+/* .success-signUp-label {
+    color: #00e676;
+}
+
+.success-signUp-input {
+    display: flex;
+    width: 95%;
+    height: 35px;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto 15px auto;
+    background-color: white;
+    transition-duration: .4s;
+    border-bottom: 2px solid #00e676; 
+}
+
+.success-signUp-input > .signUp-success-icon {
+    color: #00e676; 
+}
+
+.success-signUp-input:hover {
+    border-bottom: 2px solid #00e676; 
+} */
+
+#not-to-display {
+    color: white;
+}
+
+.singUp-inputField > input, .error-signUp-input > input, .success-signUp-input > input {
+    width: 75%;
+    height: 32px;
+    letter-spacing: 1px;
+    font-size: small;
+    border: none;
+}
+
+.singUp-inputField > input[type="text"], 
+.error-signUp-input > input[type="text"], 
+.success-signUp-input > input[type="text"] {
+    margin: 0;
+} 
+
+.signUp-btn {
+    display: block;
+    width: 30%;
+    color: white;
+    font-weight: 400;
+    padding: 10px 14px;
+    margin: 25px auto;
+    cursor: pointer;
+    background-color: #3f51b5;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    transition-duration: 0.4s;
+}
+
+.signUp-btn:hover {
+    background-color: #6400e4;
+}
+
+@media only screen and (max-width: 768px) {
+    .content-Container {
+        position: relative;
+        display: flex;
+        width: 90%;/*ici 65%*/
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        /* background: aqua; */
+    }
+    
+    .allura {
+        width: 45%;
+        height: auto;
+        object-fit: cover;
+        margin: 0;
+    }
+    
+    .signUp-form-container {
+        width: 50%;
+    }
+    
+    .signUpForm {
+        display: block;
+        width: 90%;
+        height: auto;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 647px) { 
+    .signUp-btn {
+        width: 40%;
+    }
+
+    .signUp-icon {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 500px) { 
+    .sign-up-h {
+        margin: 0 auto 15px auto;
+    }
+
+    .signUpContainer {
+        height: calc(100vh - 110px)
+    }
+
+    .content-Container {
+        width: 100%;/* 90% */
+        height: calc(100vh - 60px);
+        overflow: hidden;
+        align-self: center;
+        justify-self: space-between;
+    }
+
+    .signUp-form-container {
+        width: 100%;
+    }
+    
+    .signUpForm {
+        width: 85%;
+    }
+    
+    .allura {
+        display: none;
+    }
+    .singUp-inputField > input,
+    .error-signUp-input > input,
+    .success-signUp-input > input {
+        font-size: medium;
+    }
+
+    .content-Container {
+        height: calc(100vh - 60px);
+        margin: 0;
+    }
+
+    .signUp-btn {
+        height: 45px;
+        font-size: medium;
+    }
+}

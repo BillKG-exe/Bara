@@ -1,0 +1,34 @@
+.navigation {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: none;
+}
+
+/*use to be  .navigation > .navigation-link*/
+
+.navigation-link {
+    color: #ccc;
+}
+
+.navigation-link:hover {
+    color: #6400e1;
+    transition-duration: 0.4s;
+}
+
+.active {
+    color: #6400e1;
+}
+
+@media only screen and (max-width: 504px) {
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        background-color: white;
+    }
+}

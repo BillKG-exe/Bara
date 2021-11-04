@@ -1,0 +1,95 @@
+.report-settings {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.report-settings > form {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.report-settings > form > .title {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.report-settings > form > input, .report-settings > form > textarea {
+    display: block;
+    font-size: 15px;
+    width: 100%;
+    height: 45px;
+    padding-left: 15px;
+    margin: 10px 0;
+    outline: #6400e1;
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+.report-settings > form > input:focus, .report-settings > form > textarea:focus {
+    border: 2px solid #6400e1;
+}
+
+.report-settings > form > textarea {
+    height: 175px;
+    padding: 15px;
+}
+
+.report-settings > form > button {
+    color: white;
+    font-size: 15px;
+    letter-spacing: 1px;
+    width: 100px;
+    height: 45px;
+    margin: 15px 0;
+    border: none;
+    background-color: #6400e1;
+}
+
+.report-settings > form > .upload-box {
+    width: 350px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.report-settings > form > label {
+    color: #7f808c;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.report-settings > form > .upload-box::-webkit-file-upload-button {
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    margin: 5px 10px 0 0;
+    border: none;
+    border-radius: 50px;
+    background-color: #6400e1;
+}
+
+.uploaded-img-preview > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.report-settings > form > .error-msg-display {
+    width: 100%;
+    height: auto;
+}
+

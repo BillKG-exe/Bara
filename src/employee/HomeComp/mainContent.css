@@ -1,0 +1,257 @@
+.mainContent-page {
+    width: 85%;
+    height: 100vh;
+    background: none;
+}
+
+.sideBar-nav-filter {
+    display: none;
+}
+
+.mainContent-welcome {
+    color: #7f808c;
+    font-size: 18px;
+    font-weight: lighter;
+    margin: 15px;
+}
+
+.mainContent-searchBar {
+    width: 75%;
+    height: 50px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.search-container {
+    width: 50%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    background-color: none;
+}
+.search-container > .placehodler {
+    width: 15%;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 15px;
+}
+
+.search-container > .search-box {
+    width: 75%;
+    height: 43px;
+    padding: 15px;
+    padding-left: 25px;
+    letter-spacing: 1px;
+    border: none;
+    background: none;
+}
+
+.search-container > .maincontent-search-icon {
+    width: 10%;
+}
+
+.mainContent-searchBar > div > button {
+    cursor: pointer;
+    width: 100px;
+    height: 45px;
+    color: white;
+    border: none;
+    background-color: #6400e1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.lists-desc-section {
+    width: 75%;
+    height: calc(100vh - 105px);
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+    background-color: none;
+}
+
+.mainContent-page >.navigation-bar {
+    position: absolute;
+    width: 45px;
+    height: 40%;
+    right: 0;
+    background-color: none;
+}
+
+
+.lists-desc-section > .job-list {
+    width: 49%;
+    height: calc(100vh - 105px);
+    padding: 15px;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+.lists-desc-section > .job-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lists-desc-section > .job-list::-webkit-scrollbar-track {
+    border-radius: 4px;
+
+}
+
+.lists-desc-section > .job-list::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #ccc;
+}
+
+@media only screen and (max-width: 1050px) { 
+    .mainContent-searchBar {
+        width: 95%;
+    }
+
+    .lists-desc-section {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 902px) { 
+    /* .lists-desc-section {
+        width: 90%;
+    } */
+
+    .mainContent-page {
+        width: 80%;
+    }
+
+    .lists-desc-section > .job-list {
+        width: 75%;
+        height: calc(100vh - 105px);
+        padding: 15px;
+    }
+
+    .mainContent-searchBar {
+        width: 98%;
+    }
+}
+
+@media only screen and (max-width: 850px) { 
+    .mainContent-page {
+        display: block;
+        width: 80%;
+        margin: auto;
+    }
+
+    .sideBar-filter {
+        position: absolute;
+        right: 1%;
+        top: 1%;
+        color: #ccc;
+        display: block;
+    }
+
+    .sideBar-filter:hover {
+        color: #6400e1;
+    }
+}
+
+@media only screen and (max-width: 750px) { 
+    .mainContent-page {
+        width: 90%;
+    }
+
+    .sideBar-filter {
+        position: absolute;
+        right: 1%;
+        top: 1%;
+        color: #ccc;
+        display: block;
+    }
+
+    .sideBar-filter:hover {
+        color: #6400e1;
+    }
+}
+
+@media only screen and (max-width: 540px) { 
+    .mainContent-page {
+        width: 100%;
+    }
+
+    .mainContent-searchBar {
+        width: 100%;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        margin: 0 auto 10px auto;
+    }
+}
+
+@media only screen and (max-width: 504px) {
+    .mainContent-page {
+        padding-bottom: 525px;
+        overflow-y: scroll;
+    }
+
+    .lists-desc-section {
+        width: 100%;
+    }
+
+    .lists-desc-section > .job-list{
+        width: 100%;
+    }
+
+    .mainContent-page >.navigation-bar {
+        position: sticky;
+        width: 100%;
+        height: 45px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    .mainContent-page >.navigation-bar > .navigation {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: white;
+    }
+
+    .search-container {
+        width: 90%;
+        height: 43px;
+    }
+
+
+    .lists-desc-section > .job-list {
+        padding-bottom: 225px;
+        overflow: inherit;
+    }
+
+    .sideBar-filter {
+        display: none;
+    }
+
+    .sideBar-nav-filter {
+        display: block;
+        color: #ccc;
+    }
+
+    .sideBar-nav-filter:hover {
+        color: #6400e1;
+        transition-duration: 0.4s;
+    }
+
+}

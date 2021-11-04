@@ -1,0 +1,42 @@
+.marker-box {
+    position: relative;
+    display: flex;
+    width: 35px;
+    height: auto;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
+
+.marker-icon {
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: auto;
+}
+
+.marker-pin {
+    position: absolute;
+    display: block;
+    width: 20px;/* //(window.width > 995)? "20px" : "10px",//20px */
+    height: 20px;/* //(window.width > 995)? "20px" : "10px",//20px */
+    margin: 15px auto 0 auto;
+    z-index: -1;
+    transform: rotate(45deg);
+    background-color: #f0f0f0;
+}
+
+@media only screen and (max-width: 480px) { 
+    .marker-pin {
+        position: absolute;
+        display: block;
+        width: 10px;/* //(window.width > 995)? "20px" : "10px",//20px */
+        height: 10px;/* //(window.width > 995)? "20px" : "10px",//20px */
+        margin: 15px auto 0 auto;
+        z-index: -1;
+        transform: rotate(45deg);
+        background-color: #f0f0f0;
+    }
+}

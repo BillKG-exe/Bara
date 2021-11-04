@@ -1,0 +1,84 @@
+.company-navigation-bar {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.bara-company-logo {
+    color: black;
+    font-size: 21px;
+    font-style: italic;
+    font-weight: 400;
+    padding-left: 15px;
+}
+
+.company-navigation-links {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.company-link {
+    color: #111;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-bottom: 2px solid white;
+}
+
+.company-navigation-links > div:hover > .navlink > .company-link {
+    color: black;
+    border-bottom: 2px solid #6400e1;
+    transition-duration: 0.4s;
+}
+
+.mobile-login, .mobile-register {
+    display: none;
+}
+
+.company-navbar-auth-btn {
+    width: 150px;
+    height: 35px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 100px;
+    background-color: #f0f0f0;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.company-navbar-auth-btn > .company-nav-register {
+    color: #7f808c;
+    width: 70px;
+    height: 35px;
+    border: none;
+    border-radius: 100px;
+}
+
+.active-nav-auth-btn {
+    color: white;
+    width: 75px;    /*change this to 70px to avoid the width change hover */
+    height: 35px;
+    border: none;
+    border-radius: 100px;
+    background-color: #6400e1;
+    box-shadow: 0px 0 5px #6400e1;
+    transition-duration: 0.2s;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+    /* box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em; */
+}
+
+.company-navbar-auth-btn > .company-nav-register:hover,
+.company-navbar-auth-btn > .active-nav-auth-btn:hover {
+    opacity: 0.8;
+}
+
+.company-responsive-mobile-btn {
+    display: none;
+}

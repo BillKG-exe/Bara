@@ -1,0 +1,96 @@
+.filling-form-education-setting-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.filling-form-education-setting {
+    position: fixed;
+    top: 50%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    padding: 25px;
+    margin: 0 auto;
+    border: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.setting-fill-pop-up {
+    font-size: 20px;
+    display: flex;
+    padding: 15px 0;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.degree-selection-back-plus {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.degree-selection-back-plus > .back-container {
+    
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    margin-right: 40px;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+}
+
+.degree-selection-back-plus > input {
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.date-box {
+    margin-bottom: 24px;
+}
+
+.date-box > select {
+    color: #262626;
+    width: 25%;
+    height: 45px;
+    padding: 0 15px;
+    margin: 0 0 9px 0;
+    margin-right: 24px;
+    border: 1px solid #f0f0f0;
+}
+
+.date-box > .title {
+    color: #262626;
+    font-size: 14px;
+}
+
+.update-save-btn {
+    cursor: pointer;
+    color: #6400e1;
+    font-size: 16px;
+    width: fit-content;
+    padding: 15px 35px;
+    margin: 15px 0;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: 2px solid #6400e1;
+    background-color: white;
+}
+
+.update-save-btn:hover {
+    color: white;
+    background-color: #6400e1;
+}
+
+
+/* For CustomFillingSections checkbox */
+.current-setting-checkbox {
+    margin-bottom: 24px;
+}

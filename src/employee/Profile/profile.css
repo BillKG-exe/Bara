@@ -1,0 +1,16 @@
+.profile-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between  ;
+    background: #fcfcfc;
+}
+
+@media only screen and (max-width: 540px) {
+    .profile-page > .navigation-bar {
+        display: none;
+    }
+}
+
+

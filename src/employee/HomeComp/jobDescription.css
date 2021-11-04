@@ -1,0 +1,104 @@
+.job-desc, .show-job-desc {
+    width: 49%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+.job-desc::-webkit-scrollbar, .show-job-desc::-webkit-scrollbar {
+    display: none;
+}
+
+.job-desc > .job-desc-close-icon, .show-job-desc > .job-desc-close-icon {
+    display: none;
+}
+
+.company-header {
+    padding: 15px;
+}
+
+.company-header > img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.company-header > .company-name {
+    margin: 15px auto;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.company-job-desc, .company-job-qualification, .company-job-requirement {
+    padding: 15px;
+}
+
+.desc-title, .qualification-title, .requirement-title {
+    font-size: 15px;
+    font-weight: 599;
+    letter-spacing: 1px;
+}
+
+.desc-content, .qualification-content, .requirement-content {
+    color: #7f808c;
+    font-size: 13px;
+    line-height: 20px;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 902px) { 
+    .job-desc {
+        position: absolute;
+        width: 60%;
+        height: calc(100vh - 100px);
+        bottom: -100%;
+        transition-duration: 0.4s;
+    }   
+
+    .show-job-desc {
+        position: absolute;
+        width: 60%;
+        height: calc(100vh - 100px);
+        bottom: 0;
+        transition-duration: 0.4s;
+        background-color: white;
+    }   
+
+    .show-job-desc > .job-desc-close-icon {
+        display: block;
+        padding: 15px 0 0 15px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .job-desc {
+        width: 85%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }   
+
+    .show-job-desc {
+        width: 85%;
+        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+}
+
+@media only screen and (max-width: 504px) {
+    .job-desc {
+        width: 95%;
+    }   
+
+    .show-job-desc {
+        width: 100%;
+        height: calc(100vh - 45px);
+        padding: 0 0 125px 0;
+    }
+
+    .show-job-desc > .job-desc-close-icon {
+        position: relative;
+    }
+}
