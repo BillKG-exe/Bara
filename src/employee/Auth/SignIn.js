@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { GoMail } from 'react-icons/go';
 import { BsLock } from 'react-icons/bs';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
 import { Typography, Button } from '@material-ui/core';
-import Error from '../customTags/Error';
 import './singIn.css';
+import { Checkbox } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
 import axios from 'axios'
-
-const authStatus = {
-    notFound: 'user not found',
-    invalidCredentials: 'invalid credentials',
-    success: 'success' 
-}
+import jwt from 'jsonwebtoken'
 
 
 export class SignIn extends Component {
     constructor(props) {
         super(props);
-    
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             email: null,
             password: null,
             show: false,
-            errorMsg: null
+            errorMsg: null, 
+            remember: false
         };
+    }
+
+    componentDidMount() {
+        this.props.authorized()
+            .then(authenticated => {
+                if(authenticated) { 
+                    this.props.history.push('/');
+                }
+            }).catch((e) => console.log(e))
     }
 
     setErrorMsg = (msg) => {
@@ -49,24 +55,23 @@ export class SignIn extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
+        const token = jwt.sign({password: this.state.password}, "secret")
+
         const user = {
             email: this.state.email,
-            password: this.state.password
+            password: token
         }
         
-        axios.post('http://localhost:8000/api/login', user)
+        axios.post('/employee/login', user)
               .then((response) => {
-                console.log(response)
-                const status = response.data
-
-                if(status.message === authStatus.notFound || status.message === authStatus.invalidCredentials) {
-                    this.setErrorMsg("Email or password is incorrect")
+                if(response.data.success) {
+                    this.props.history.push('/profile')
                 } else {
-                    this.props.history.push('/')
+                    this.setErrorMsg(response.data.message)
                 }
             }, (error) => {
                 console.log(error)
-            });
+        });
     }
 
     render() {
@@ -123,8 +128,20 @@ export class SignIn extends Component {
                                     }                                        
                                     </div>
                                 </div>
+                                <div className="remember-container">
+                                    <div className="check" onClick={this.handleCheck}>
+                                        <Checkbox 
+                                            color="primary" 
+                                            size="small" 
+                                            checked={this.state.remember}
+                                            onClick={() => this.setState({remember : !this.state.remember})}
+                                        />
+                                        <div>Remember Me</div>
+                                    </div>
+                                    <Link className="forgot-msg" to="employee/forgotpassword">Forgot Password?</Link>
+                                </div>
                                 <div className="error-msg-spot-signIn">
-                                    {this.state.errorMsg && (<Alert /* variant="filled" */ severity="error">{this.state.errorMsg}</Alert>)}
+                                    {this.state.errorMsg && (<Alert severity="error">{this.state.errorMsg}</Alert>)}
                                 </div>
                                 <button id="signIn-btn">SIGN IN</button>
                             </form>
@@ -136,4 +153,4 @@ export class SignIn extends Component {
     }
 }
 
-export default SignIn
+export default withRouter(SignIn)

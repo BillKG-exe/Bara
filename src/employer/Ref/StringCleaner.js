@@ -29,7 +29,6 @@ class StringCleaner {
         string = string.trim().toLowerCase()
         var strArr = string.split(" ")
 
-        var str = null
         var newString = ""
 
         for(var i = 0; i < strArr.length; i++) {
@@ -48,4 +47,4 @@ class StringCleaner {
     }
 }
 
-module.exports = StringCleaner
+export default StringCleaner

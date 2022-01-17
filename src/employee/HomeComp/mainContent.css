@@ -1,5 +1,5 @@
 .mainContent-page {
-    width: 85%;
+    width: 83%;
     height: 100vh;
     background: none;
 }
@@ -93,12 +93,11 @@
 }
 
 .lists-desc-section > .job-list::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 .lists-desc-section > .job-list::-webkit-scrollbar-track {
     border-radius: 4px;
-
 }
 
 .lists-desc-section > .job-list::-webkit-scrollbar-thumb {
@@ -174,9 +173,12 @@
     }
 }
 
-@media only screen and (max-width: 540px) { 
+@media only screen and (max-width: 675px) { 
     .mainContent-page {
         width: 100%;
+        padding-bottom: 525px;
+        overflow-y: scroll;
+        background-color: white;
     }
 
     .mainContent-searchBar {
@@ -192,21 +194,27 @@
         border-bottom: 1px solid #ccc;
         margin: 0 auto 10px auto;
     }
+
+    .lists-desc-section > .job-list {
+        width: 80%;
+        padding-bottom: 225px;
+        overflow: inherit;
+    }
 }
 
 @media only screen and (max-width: 504px) {
-    .mainContent-page {
+   /*  .mainContent-page {
         padding-bottom: 525px;
         overflow-y: scroll;
     }
-
+ */
     .lists-desc-section {
         width: 100%;
     }
 
-    .lists-desc-section > .job-list{
-        width: 100%;
-    }
+/*     .lists-desc-section > .job-list{
+        
+    } */
 
     .mainContent-page >.navigation-bar {
         position: sticky;
@@ -236,8 +244,7 @@
 
 
     .lists-desc-section > .job-list {
-        padding-bottom: 225px;
-        overflow: inherit;
+        width: 100%;
     }
 
     .sideBar-filter {

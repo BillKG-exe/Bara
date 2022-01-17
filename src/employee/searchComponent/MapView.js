@@ -25,11 +25,11 @@ function MapView(props) {
                 defaultCenter={{lat:12.371535, lng:-1.5199175}}
                 defaultZoom={13}    
                 /* google="" */ >
-                <LogoMarker 
+                {/* <LogoMarker 
                     lat={12.371535}
                     lng={-1.5199175}
                     icon={process.env.PUBLIC_URL + "/img/google.png"} 
-                    distance={"5 km"} />
+                    distance={"5 km"} /> */}
             </Map>
         </div>
     )

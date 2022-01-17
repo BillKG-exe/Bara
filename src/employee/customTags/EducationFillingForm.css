@@ -2,6 +2,9 @@
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100vh;
     z-index: 1;
@@ -9,14 +12,16 @@
 }
 
 .filling-form-education-setting {
-    position: fixed;
+  /*   position: fixed;
     top: 50%;
     left: 57.5%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    height: auto;
+    transform: translate(-50%, -50%); */
+    width: 60%;
+    height: calc(100vh - 75px);
     padding: 25px;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 45px;
+    overflow-y: auto;
     border: 10px;
     border-radius: 10px;
     background-color: white;
@@ -93,4 +98,25 @@
 /* For CustomFillingSections checkbox */
 .current-setting-checkbox {
     margin-bottom: 24px;
+}
+
+
+@media only screen and (max-width: 790px) { 
+    .filling-form-education-setting {
+        width: 70%;
+        height: calc(100vh - 150px);
+        padding: 25px;
+        border: 10px;
+        border-radius: 10px;
+        background-color: white;
+    }
+}
+
+@media only screen and (max-width: 665px) { 
+    .filling-form-education-setting {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0px;
+    }
 }

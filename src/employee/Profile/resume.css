@@ -4,9 +4,9 @@
     display: block;
     padding: 15px;
     margin: auto;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+/*     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
 }
 
 .resume-section::-webkit-scrollbar {
@@ -71,12 +71,10 @@
 }
 
 .resume-skill-container {
-    display: flex;
-    width: 100%;
-    height: auto;
-    margin: 25px auto 50px auto;
-    justify-content: space-around;
-    background-color: #fcfcfc;
+    display: block;
+    font-size: 15px;
+    font-style: italic;
+    padding: 20px 0;
 }
 
 .skill-box-container {
@@ -93,3 +91,16 @@
         padding-bottom: 100px;
     }
 }
+
+/* 
+
+.resume-skill-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 25px auto 50px auto;
+    justify-content: space-around;
+    background-color: #fcfcfc;
+}
+
+*/

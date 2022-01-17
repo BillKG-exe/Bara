@@ -13,7 +13,7 @@
 
 .company-login > .login-container > .company-greeting-img-and-form {
     width: 60%;
-    height: 95%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@
 
 .company-login > .login-container > .company-greeting-img-and-form > form {
     width: 50%;
-    height: 100%;
+    height: fit-content;
     padding: 15px;
 }
 
@@ -36,6 +36,10 @@
     display: block;
     width: 90%;
     margin: auto
+}
+
+.login-error-msg {
+    margin: 15px 0;
 }
 
 form > .title {
@@ -135,4 +139,36 @@ form > .label {
 
 .company-login > .login-container > .company-greeting-img-and-form > form > button:hover {
     opacity: 0.95;
+}
+
+@media only screen and (max-width: 1028px)  {
+    .company-login > .login-container > .company-greeting-img-and-form {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 760px)  {
+    .company-login > .login-container > .company-greeting-img-and-form {
+        box-shadow: none;
+    }
+
+    .company-login > .login-container > .company-greeting-img-and-form {
+        width: 95%;
+    }
+
+    .company-login > .login-container > .company-greeting-img-and-form > .company-login-greeting-img{
+        display: none;
+    }
+
+    .company-login > .login-container > .company-greeting-img-and-form > form {
+        width: 75%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .company-login > .login-container > .company-greeting-img-and-form > form {
+        width: 100%;
+        box-shadow: none;
+    }
 }

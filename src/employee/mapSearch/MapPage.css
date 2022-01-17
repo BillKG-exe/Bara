@@ -1,6 +1,8 @@
 .mappage {
+    width: 100%;
     display: flex;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .mappage-navbar {
@@ -11,6 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -43,7 +46,7 @@
     background-color: aqua;
 }
 
-.mappage-map {
+.mappage-map, .mappage-show-map {
     position: relative;
     width: 60%;
     height: 100vh;
@@ -111,4 +114,128 @@
     border: none;
     background-color: #efefef;
     box-shadow: 0 0 5px #efefef;
+}
+
+.mappage-mapToggle {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    color: #6400e1;
+    width: 45px;
+    height: 45px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+@media only screen and (max-width: 1186px) {
+    .mappage-searchBar {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .mappage-navbar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    .mappage-searchList {
+        width: 100%;
+    }
+
+    .mappage-map {
+        display: none;
+    }
+
+    .mappage-show-map {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    .mappage-mapToggle {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .mappage-searchBar {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        min-height: 45px;
+        display: block;
+        z-index: 1;
+        border-radius: 0;
+        background-color: transparent;
+    }
+    
+    .mappage-key, .mappage-place {
+        width: 95%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin: auto;
+    }
+    
+    .mappage-key > input, .mappage-place > input {
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        border: none;
+        border-bottom: 2px solid #fcfcfc;
+    }
+    
+    .mappage-place {
+        flex: 1;
+    }
+    
+    .mappage-key > input:focus, .mappage-place > input:focus {
+        border-bottom: 2px solid #fff;
+    }
+    
+    .mappage-searchBar-icons {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        background-color: white;
+    }
+    
+    .mappage-searchBar-btn {
+        cursor: pointer;
+        font-size: 14px;
+        width: 95%;
+        height: 100%;
+        letter-spacing: 1px;
+        padding: 0 7px;
+        /* margin-left: 0; */
+        margin: auto;
+        border-radius: 100px;
+        border: none;
+        background-color: #efefef;
+        box-shadow: 0 0 5px #efefef;
+    }
+
+}
+
+@media only screen and (max-width: 280px) {
+    .mappage-navbar {
+        justify-content: space-evenly;
+    }
+
+    .mappage-logo {
+        font-size: 16px;
+        flex: 0;
+    }
+
 }

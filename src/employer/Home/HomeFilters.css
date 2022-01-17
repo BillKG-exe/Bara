@@ -1,0 +1,101 @@
+.employer-home-filters {
+    width: fit-content;
+}
+
+.employer-home-filters > .filter-icon {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    color: #6400e1;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.filter-box {
+    position: absolute;
+    top: 125px;
+    right: 130px;
+    z-index: 1;
+}
+
+.filter-container {
+    width: 300px;
+    max-height: calc(100vh - 185px);
+    padding: 25px;
+    /* overflow-y: scroll; */
+    background-color: white;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.filter-container > .title {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 0 15px 0;
+}
+
+.checkbox-title-container {
+    margin: 15px;
+    margin-bottom: 25px;
+}
+
+.filter-container > .closeIcon {
+    display: none;
+    font-size: 20px;
+    justify-content: flex-end;
+}
+
+.checkbox-title-container > div > div > div {
+    margin: 7.5px auto;
+}
+
+.checkbox-title-container > div > div > div > span {
+    color: black; /* Changes checkbox name color to black */
+}
+
+@media only screen and (max-width: 1010px) {
+    .employer-home-filters {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        z-index: 1;
+    }
+
+    .employer-home-filters > .filter-icon {
+        border-radius: 50%;
+        background-color: whitesmoke;
+    }
+
+    .filter-container > .closeIcon {
+        display: flex;
+    }
+
+    .filter-box {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .filter-box {
+        top: 25px;
+        background: none;
+    }
+
+    .filter-container {
+        width: 100%;
+        max-height: none;
+        height: calc(100vh - 55px);
+    }
+}

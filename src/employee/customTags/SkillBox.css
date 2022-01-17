@@ -35,6 +35,20 @@
 }
 
 .skill-list {
+    color: #6400e1;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 500;
+    width: 100%;
+    min-height: 150px;
+    height: auto;
+    padding: 15px;
+    margin: 24px auto;
+    border: none;
+    background-color: #fcfcfc;
+}
+
+/* .skill-list {
     position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -45,4 +59,4 @@
     margin: 24px auto;
     border: none;
     background-color: #fcfcfc;
-}
+} */

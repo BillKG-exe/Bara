@@ -13,11 +13,19 @@ export class Home extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.authorized()
+            .then(authenticated => {
+                if(!authenticated) { 
+                    this.props.history.push('/signin');
+                }
+            }).catch((e) => console.log(e))
+    }
+
     handleSideBarStatus = (status) => {
         this.setState({
             showSideBar: status
         })
-        console.log(status)
     }
 
     render() {

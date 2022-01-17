@@ -31,3 +31,34 @@
     padding: 15px;
     border: 1px solid #f0f0f0;
 }
+
+.info-error-msg {
+    padding: 0 0 15px 0;
+}
+
+.classic-save-btn {
+    cursor: pointer;
+    display: flex;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    width: fit-content;
+    height: 25px;
+    padding: 15px 12px;
+    margin: 15px auto;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background-color: #6400e1;
+}
+
+@media only screen and (max-width: 440px) { 
+    .account-setting {
+        padding: 15px;
+    }
+
+    .account-update-bio > textarea{
+        font-size: 16px;
+    }
+}

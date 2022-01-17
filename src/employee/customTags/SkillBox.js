@@ -1,11 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './SkillBox.css'
 import { AiOutlineUnorderedList } from 'react-icons/ai'
 import SkillContainer from './SkillContainer'
+import axios from 'axios'
 
-const SkillBox = () => {
+
+
+const SkillBox = ({ getSkillsList }) => {
+    const [id, setSId] = useState(-1)
     const [skill, setSkill] = useState("")
+    const [skillSet, setSkillSet] = useState("")
     const [skillList, setSkillList] = useState([])
+
+    useEffect(() => {
+        axios.get('/employee/skills')
+        .then((response) => {
+            setSkillSet(response.data.list.listOfSkills)
+        }, (error) => {
+            console.log(error)
+        });
+    }, [])
 
     const handleChange = e => {
         setSkill(e.target.value)
@@ -13,7 +27,19 @@ const SkillBox = () => {
 
     const handleAddSkill = e => {
         setSkillList([...skillList, skill])
+
+        if(skillSet.length === 0) {
+            setSkillSet(skill)
+        } else {
+            setSkillSet(skillSet + " - "+  skill)
+        }    
+        
         setSkill("")
+        
+        getSkillsList({ 
+            id: id,
+            skillSet: skillSet 
+        })
     }
 
     return (
@@ -27,13 +53,9 @@ const SkillBox = () => {
                 <button className="add-skill-btn" onClick={handleAddSkill}>Add</button>
             </div>
             <div className="skill-list">
-                <SkillContainer skill="Engineering" />
-                {
-                    skillList.map((skill, index) => (
-                        <SkillContainer key={index} skill={skill} />
-                    ))
-                }
+                {skillSet}
             </div>
+            <div><button className='classic-save-btn' /* onClick={handleUpdateInfo} */>Save</button></div>
         </div>
     )
 }

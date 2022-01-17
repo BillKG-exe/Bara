@@ -1,5 +1,5 @@
 import "./CustomSearch.css"
-
+import HomeFilters from "../Home/HomeFilters"
 
 const CustomSearch = () => {
     return (
@@ -11,6 +11,7 @@ const CustomSearch = () => {
                 <input type="search" placeholder="ville" />
             </div>
             <button type="search">SEARCH</button>
+            <section><HomeFilters /></section>
         </div>
     )
 }

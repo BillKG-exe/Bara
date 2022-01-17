@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './mainContent.css'
+import { useHistory } from 'react-router'
 import SearchIcon from '@material-ui/icons/Search'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import SearchCardList from '../searchComponent/SearchCardList'
@@ -7,17 +8,31 @@ import JobDescription from './JobDescription'
 import NavigationBar from './NavigationBar'
 import {RiFilter2Fill} from 'react-icons/ri'
 import { RiCloseFill } from 'react-icons/ri'
-import list from '../../utils/list'
+import { CircularProgress } from '@material-ui/core'
+import axios from 'axios'
+
 
 function MainConatent(props) {
+    const history = useHistory()
     const [jobData, setJobData] = useState()
+    const [jobList, setJobList] = useState([])
     const [showDesc, setShowDesc] = useState(false)
     const [showFilter, setShowFilter] = React.useState(false)
 
-    const handleSetActiveCard = (data) => {
+    const getJobs = async () => {
+        const res = await axios.get('employee/jobs')
+        if(!res.data.authenticated) history.push('/signin')
+        setJobList(res.data.jobs)
+    }
+
+    useEffect(() => {
+        getJobs()
+    }, [])
+
+    /* const handleSetActiveCard = (data) => {
         setJobData(data)
         setShowDesc(true)
-    }
+    } */
 
     const handleHideDesc = () => {
         setShowDesc(false)
@@ -26,6 +41,11 @@ function MainConatent(props) {
     const handleShowFilter = () => {
         setShowFilter(!showFilter)
         props.sideStatusUpdate(!showFilter)
+    }
+
+    const handleGetIndex = (id) => {
+        setJobData(id)
+        setShowDesc(true)
     }
 
     const handleChange = (e) => {
@@ -78,14 +98,16 @@ function MainConatent(props) {
                 <div><button type="button">Search</button></div>
             </div>
             <div className="lists-desc-section">
-                {/* <div className="navigation-bar">
-                    <NavigationBar />
-                </div> */}
                 <div className="job-list">
-                    {/* Don't need filter as props in searchcardlist load data here with filters and pass it to search card */}
-                    <SearchCardList list={list} activeCard={handleSetActiveCard} filters={[]} />
+                    {
+                        jobList? (
+                            <SearchCardList jobs={jobList} getIndex={handleGetIndex} filters={[]} />
+                        ) : (
+                            <div className='loading'><CircularProgress /></div>
+                        )
+                    }
                 </div>
-                <JobDescription data={jobData} show={showDesc} hide={handleHideDesc} />
+                <JobDescription jobId={jobData} show={showDesc} hide={handleHideDesc} />
             </div>
         </div>
     )

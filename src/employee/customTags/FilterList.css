@@ -1,8 +1,15 @@
 .filterList {
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 40px;
     margin-top: 35px;
+    overflow-x: auto;
+}
+
+.filterList::-webkit-scrollbar {
+    display: none;
 }
 
 .filterList > select {

@@ -1,15 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import './job.css'
-import Filter from '../Misc/Filter'
 import JobCard from './JobCard'
 import Navbar from '../Nav/Navbar'
 import ReportHeader from '../Report/ReportHeader'
-
-
-const customFilter = [
-    {title: 'company', list: ['Google', 'Microsoft', 'Uber', 'Tesla', 'Lift', 'Mercedes', 'Oracle', 'Zillow', 'Netflix']},
-    {title: 'Job Position', list: ['Software Engineer', 'Software Developer', 'Hardware Engineer', 'Artificial Inteligence']}
-]
 
 const data = [
     {title: 'Software Engineer', appliedAcc: 124, qualifications: ['Strong knowledge in data structure', 'Strong knowledge in algorithm', 'C++, Python, or Java', 'Bachelor or Master'], datePosted: '01/2020'},
@@ -33,30 +27,31 @@ const data = [
 
 
 
-function Job() {
-    const [filter, setFilter] = useState()
+function Job({ authorized }) {
+    const history = useHistory()
 
-    const updateFilters = (newFilter) => {
-        setFilter([...newFilter])
-        console.log(filter)
-    }
+    useEffect(() => {
+        authorized()
+            .then(authenticated => {
+                if(!authenticated) {
+                    history.push('/employer/login');
+                }
+            }).catch((e) => console.log(e))
+    }, [])
 
     return (
         <>
             <Navbar />
             <ReportHeader />
             <div className="report-job-section">
-                <div className="filter-section">
-                    <Filter data={[]} updateFilters={updateFilters} customItems={[...customFilter]} />       
-                </div>
                 <div className="job-posted-section">
                     { 
-                        data.map((job) => (
-                            <JobCard  jobPosted={job} />
+                        data.map((job, index) => (
+                            <JobCard key={index}  jobPosted={job} />
                         ))
                     }
                 </div>
-                {/* //popup show description and number applicants. */}
+                {/* Popup show description and number applicants. */}
             </div>
         </>
     )

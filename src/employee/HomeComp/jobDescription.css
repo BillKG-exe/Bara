@@ -1,14 +1,28 @@
 .job-desc, .show-job-desc {
     width: 49%;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: white;
 }
 
-.job-desc::-webkit-scrollbar, .show-job-desc::-webkit-scrollbar {
-    display: none;
+.show-job-desc::-webkit-scrollbar {
+    width: 10px;
 }
 
+.show-job-desc::-webkit-scrollbar-track {
+    border-radius: 7px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255);
+}
+
+.show-job-desc::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: #cacaca;
+}
+
+/* .job-desc::-webkit-scrollbar, .show-job-desc::-webkit-scrollbar {
+    display: none;
+}
+ */
 .job-desc > .job-desc-close-icon, .show-job-desc > .job-desc-close-icon {
     display: none;
 }
@@ -50,6 +64,36 @@
     padding: 15px;
 }
 
+.apply-btn > button {
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6400e1;
+    padding: 6px 18px;
+    margin: 15px auto;
+    margin-bottom: 25px;
+    border: 2px solid #6400e1;
+    background-color: white;
+}
+
+.apply-btn > button:hover {
+    color: white;
+    background-color: #6400e1;
+    transition-duration: 0.4s;
+}
+
+.applied-status {
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    margin: 15px;
+}
+
 @media only screen and (max-width: 902px) { 
     .job-desc {
         position: absolute;
@@ -61,7 +105,7 @@
 
     .show-job-desc {
         position: absolute;
-        width: 60%;
+        width: 65%;
         height: calc(100vh - 100px);
         bottom: 0;
         transition-duration: 0.4s;
@@ -74,7 +118,7 @@
     }
 }
 
-@media only screen and (max-width: 540px) {
+/* @media only screen and (max-width: 540px) {
     .job-desc {
         width: 85%;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -85,17 +129,20 @@
         border-radius: 25px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
-}
+} */
 
-@media only screen and (max-width: 504px) {
+@media only screen and (max-width: 675px) {
     .job-desc {
         width: 95%;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }   
 
     .show-job-desc {
         width: 100%;
         height: calc(100vh - 45px);
-        padding: 0 0 125px 0;
+        padding: 15px 15px 125px 15px;
+        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     }
 
     .show-job-desc > .job-desc-close-icon {

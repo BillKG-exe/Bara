@@ -3,7 +3,13 @@ import './register.css' //Some of the classes in register can be found in login.
 import Navbar from '../Nav/Navbar'
 import VisibilityIcon from '@material-ui/icons/Visibility' 
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
-import Validator from "C:/Users/ouatt/Desktop/Bara/Frontend/bara/src/utils/validator"
+import Validator from "../../utils/validator"
+import Alert from '@material-ui/lab/Alert'
+import axios from 'axios'
+import jwt from 'jsonwebtoken'
+import { withRouter } from 'react-router'
+
+
 export class Register extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +24,17 @@ export class Register extends Component {
             show1: false,
             show2: false,
             errorMsg: null,
+            success: false
         }
+    }
+
+    componentDidMount() {
+        this.props.authorized()
+            .then(authenticated => {
+                if(authenticated) {
+                    this.props.history.push('/employer/Dashboard');
+                }
+            }).catch((e) => console.log(e))
     }
 
     setErrorMsg = (msg) => {
@@ -38,6 +54,7 @@ export class Register extends Component {
             show2: !this.state.show2
         })
     }
+    
 
     handleChange = (e) => {
         this.setState({
@@ -57,10 +74,33 @@ export class Register extends Component {
         }
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
-        if(this.state.password !== this.state.confirmation) {
+        
+        if(!this.state.companyName || !this.state.name || !this.state.title) {
+            this.setErrorMsg('Please fill out all the forms')
+        } else if(this.state.password !== this.state.confirmation) {
             this.setErrorMsg("Passwords do not match")
+        } else {
+            const user = {
+                companyName: this.state.companyName,
+                employerName: this.state.name,
+                employerTitle: this.state.title,
+                email: this.state.email,
+                password: this.state.password
+            }
+        
+            axios.post('/employer/register', user)
+                  .then((response) => {
+                    const valid = response.data.success
+                    this.setState({ success: valid })
+                    
+                    if(!valid) {
+                        this.setErrorMsg(response.data.message)
+                    }
+                }, (error) => {
+                    console.log(error)
+            });
         }
     }
 
@@ -138,8 +178,8 @@ export class Register extends Component {
                                         : (<VisibilityIcon className="input-icon" onClick={this.handleShow2}/>)
                                 }
                             </div>
-                            { this.state.errorMsg && (<p>{this.state.errorMsg}</p>) }
-                            <button>Register</button>
+                            <div>{ this.state.errorMsg && (<Alert severity={"error"}>{this.state.errorMsg}</Alert>) }</div>
+                            <button onClick={this.handleSubmit}>Register</button>
                         </form>
                     </div>
                 </div>
@@ -148,4 +188,4 @@ export class Register extends Component {
     }
 }
 
-export default Register
+export default withRouter(Register)

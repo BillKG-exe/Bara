@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import './Search.css'
-import SearchNav from '../HeaderComponent/SearchNav'
 import SearchCardList from '../searchComponent/SearchCardList'
-import list from '../../utils/list'
-import SearchIcon from '@material-ui/icons/Search'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
+import MapJobDescView from './MapJobDescView'
 import FilterList from '../customTags/FilterList'
-import Filter from '../../employer/Misc/Filter'
+import axios from 'axios'
+import { CircularProgress } from '@material-ui/core'
+
 
 export class Search extends Component {
 
@@ -14,10 +13,25 @@ export class Search extends Component {
         super(props);
 
         this.state = {
+            jobList: [],
+            jobId: null,
+            showDesc: false,
             showMap: props.showMap,
             isMapShowed: props.isMapShowed,
             showFilter: false
         }
+    }
+
+    async componentDidMount () {
+        const res = await axios.get('employee/jobs')
+        
+        if(res.data.authenticated) {
+            this.setState({ jobList: res.data.jobs })
+        }
+    }
+
+    handleGetIndex = (id) => {
+        this.setState({jobId: id})
     }
 
     handleSearchKeyChange = (e) => {
@@ -33,10 +47,19 @@ export class Search extends Component {
     render() {
         return (
             <div className="search-comp">
-                <div className="search-scroll-view">
-                    {<FilterList />}
-                    <div className="job-search-list">
-                        <SearchCardList list={list} />
+                <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <div className="search-scroll-view">
+                        {<FilterList />}
+                        <div className="job-search-list">
+                            {
+                                this.state.jobList.length !== 0? (
+                                    <SearchCardList jobs={this.state.jobList} getIndex={this.handleGetIndex} filters={[]} />
+                                ) : (
+                                    <div className='loading'><CircularProgress /></div>
+                                )
+                            }
+                            <MapJobDescView jobId={this.state.jobId} />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,32 +68,3 @@ export class Search extends Component {
 }
 
 export default Search
-
-
-
-                {/* <SearchNav  updateFilterToggle={this.handleShowFilter}  /> */}
-{/*                 <div className="map-searchBar">
-                    <div className="map-search-container">
-                        <div className="placehodler">What</div>
-                        <input 
-                            className="search-box" 
-                            placeholder="keyword..."
-                            type="text" 
-                            id="keyword" 
-                            onChange={this.handleSearchKeyChange}
-                        />
-                        <SearchIcon className="maincontent-search-icon" />
-                    </div>                                                                  
-                    <div className="map-search-container">
-                        <div className="placehodler">Where</div>
-                        <input 
-                            className="search-box" 
-                            placeholder="city, country"
-                            type="text" 
-                            id="location" 
-                            onChange={this.handleSearchKeyChange}
-                        />
-                        <LocationOnIcon className="maincontent-search-icon" />
-                    </div>
-                    <div><button type="button">Search</button></div>
-                </div> */}

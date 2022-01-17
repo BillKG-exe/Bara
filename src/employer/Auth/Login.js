@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import { Link } from 'react-router-dom'
-import Input from '@material-ui/core/Input'
 import './login.css'
 import Navbar from '../Nav/Navbar'
 import VisibilityIcon from '@material-ui/icons/Visibility' 
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
 import { Checkbox } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert'
+import axios from 'axios'
 
 
 export class Login extends Component {
@@ -14,12 +15,21 @@ export class Login extends Component {
         super(props);
     
         this.state = {
-            email: null,
-            password: null,
+            email: '',
+            password: '',
             show: false,
             remember: false,
             errorMsg: null
         };
+    }
+
+    componentDidMount() {
+        this.props.authorized()
+            .then(authenticated => {
+                if(authenticated) {
+                    this.props.history.push('/employer/Dashboard');
+                }
+            }).catch((e) => console.log(e))
     }
 
     handleClick = (e) => {
@@ -30,7 +40,7 @@ export class Login extends Component {
 
     handleChange = (e) => {
         this.setState({
-            [e.target.id]: [e.target.value]
+            [e.target.id]: e.target.value
         })
     }
 
@@ -42,6 +52,26 @@ export class Login extends Component {
     }
 
     handleSubmit = (e) => {
+        e.preventDefault()
+
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        axios.post('/employer/login', user)
+        .then((response) => {
+            const { success, message } = response.data
+            
+            if(!success) {
+                this.setState({ errorMsg: message })
+            } else {
+                this.props.history.push('/employer/report/candidates')
+            }
+
+        }, (error) => {
+            console.log(error)
+        });
 
     }
 
@@ -50,7 +80,6 @@ export class Login extends Component {
             <div className="company-login">
                 <Navbar />
                 <div className="login-container">
-                    {/* Add Img to left of form for good look */}
                     <div className="company-greeting-img-and-form">
                         <img className="company-login-greeting-img" 
                             src={process.env.PUBLIC_URL + "/img/BuildingGreeting.jpg"} alt="sj,bkjkjabs"/>
@@ -96,11 +125,11 @@ export class Login extends Component {
                             </div>
                             <div className="error-msg">
                                 { this.state.errorMsg && 
-                                    (<Alert variant="filled" severity="error">
+                                    (<Alert severity="error">
                                         {this.state.errorMsg}
                                     </Alert>) }
                             </div>
-                            <button>Login</button>
+                            <button onClick={this.handleSubmit}>Login</button>
                         </form> 
                     </div>
                 </div>
@@ -109,4 +138,4 @@ export class Login extends Component {
     }
 }
 
-export default Login
+export default withRouter(Login)

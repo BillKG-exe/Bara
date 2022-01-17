@@ -14,8 +14,7 @@ function CheckBox({ id, name, total, addFilter }) {
         <div className="checkBox-component" onClick={handleClick}>
             <Checkbox className="checkbox" id={id} checked={checked} color="primary"size="small" />     
             <span>{name}</span> 
-            {/* <div style={{flex: 1}}></div> */}
-            <div>{"(" + total + ")"}</div>         
+            { total && (<div>{"(" + total + ")"}</div> ) }        
         </div>
     )
 }

@@ -6,9 +6,9 @@ import './header.css'
 
 function Header() {
     const [clicked, setclicked] = useState(false)
+    
     const handleClick = (e) => {
         setclicked(!clicked)
-        //console.log(clicked)
     }
 
     return (

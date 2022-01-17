@@ -4,16 +4,17 @@
     background-color: #fcfcfc; 
 }
 
-.filter-section {
+/* .filter-section {
     width: 20%;
     min-height: calc(100vh - 105px);
     padding: 0 15px;
     background-color: white;
-}
+} */
 
 .candidate-list-section {
     width: 475px;
     height: auto;
+    margin-right: 25px;
 }
 
 .candidate-section > div > .resume-section {
@@ -44,4 +45,74 @@
 
 .status-btn > button:hover {
     opacity: 0.9;
+}
+
+.resume-component {
+    position: fixed;
+    top: 120px;
+    right: 25px;
+    width: 35%;
+    height: calc(100vh - 140px);
+    padding: 25px 0;
+    margin-left: 25px;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.resume-component::-webkit-scrollbar {
+    width: 10px;
+}
+
+.resume-component::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+
+.resume-component::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #ccc;
+}
+
+.resume-component > div > .close-icon {
+    font-size: 28px;
+    display: none;
+    justify-content: flex-end;
+    padding-right: 25px;
+}
+
+@media only screen and (max-width: 1150px) {
+    .candidate-section {
+        align-items: flex-start;
+        /* justify-content: space-between; */
+    }
+
+    .resume-component {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .candidate-list-section {
+        margin-left: 20%;
+    }
+
+    .resume-component {
+        width: 100%;
+        height: calc(100vh);
+        right: 0;
+        top: 0;
+    }
+
+    .resume-component > div > .close-icon {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .candidate-list-section {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
 }

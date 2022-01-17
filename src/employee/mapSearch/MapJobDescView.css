@@ -1,0 +1,88 @@
+.map-view-description {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 45px);
+    padding: 25px;
+    border-radius: 15px;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.map-view-description::-webkit-scrollbar {
+    width: 7px;
+}
+
+.map-view-description::-webkit-scrollbar-track {
+    border-radius: 7px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255);
+}
+
+.map-view-description::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: #cacaca;
+}
+
+.hide-map-view-description {
+    display: none;
+}
+
+.desc-close-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.company-img-desc > img {
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    object-fit: cover;
+}
+
+.company-name-desc {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 15px 0 0 0;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.location-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position-location, .location-type > div {
+    /* display: block; */
+    color: #6f6f6f;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+.company-position {
+    font-size: 1.5em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.desc-block {
+    margin-top: 25px;
+}
+
+.desc-block > .title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.desc-block > .content {
+    color: #111;
+    font-size: 14px;
+    line-height: 20px;
+}

@@ -7,16 +7,8 @@ import MapIcon from '@material-ui/icons/Map'
 import './searchNav.css'
 
 function SearchNav({ updateFilterToggle }) {
-    /* const [isFilterOn, setIsFilterOn] = React.useState(false)
-
-    const handleToggleFilter = (e) => {
-        setIsFilterOn(!isFilterOn)
-        updateFilterToggle(!isFilterOn)
-        console.log(isFilterOn)
-    } */
 
     return (
-        /*Add the same icons and links as in NavigationBar */
         <div className="search-nav">
             <div className="search-nav-logo">Bara</div>
             <div className="search-nav-icons">

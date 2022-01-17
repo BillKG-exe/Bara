@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import './candidates.css'
 import CandidateCard from './CandidateCard'
 import Navbar from '../Nav/Navbar'
 import ReportHeader from '../Report/ReportHeader'
 import Filter from '../Misc/Filter'
 import CheckBoxData from '../Ref/CheckListData'
-import candidates from '../Ref/candidates'
+/* import candidates from '../Ref/candidates' */
 import StringCleaner from '../Ref/StringCleaner'
-import Resume from 'C:/Users/ouatt/Desktop/Bara/Frontend/bara/src/employee/Profile/Resume'
+import Resume from '../../employee/Profile/Resume'
+import { IoCloseOutline } from 'react-icons/io5'
+import axios from 'axios'
 
 
-function Candidates() {
 
+function Candidates({ authorized }) {
+    const history = useHistory()
+    const [candidateId, setCandidateId] = useState(-1)
     const [filters, setFilters] = useState([])
-    const [dataWithFilters, setDataWithFilters] = useState(candidates)
+    const [dataWithFilters, setDataWithFilters] = useState([])
     const [resume, setResume] = useState(null)
     const [showResume, setShowResume] = useState(false);
 
-    const sortDataWithFilter = () => {
+/*     const sortDataWithFilter = () => {
         var newFilters = []
         var cleaner = new StringCleaner()
 
@@ -36,43 +41,78 @@ function Candidates() {
             setDataWithFilters(candidates) 
         }
 
-    }
+    } */
 
     const updateFilters = (newFilters) => {
         setFilters([...newFilters])
     }
 
+    const handleResumeDispaly = data => {
+        setResume(data)
+        setShowResume(true)
+    }
+
+    const handleClick = e => {
+        setCandidateId(e.target.id)
+    }
+
+    const getData = async () => {
+        const res = await axios.get('/employer/candidates')
+        setDataWithFilters(res.data.list)
+    }
+
     useEffect(() => {
-        sortDataWithFilter()
+        authorized()
+            .then(authenticated => {
+                if(!authenticated) {
+                    history.push('/employer/login');
+                }
+            }).catch((e) => console.log(e))
+       
+        /* sortDataWithFilter()  */
+        getData()
     }, [filters])
 
     const renderCandidates = () => {
         return (
             <div>
                 {
-                   (dataWithFilters).map((candidate, index)=>(
-                        <CandidateCard key={index} data={candidate} />
+                   (dataWithFilters).map((candidate)=>(
+                        <CandidateCard 
+                            key={candidate.jobId} 
+                            data={candidate} 
+                            onClick={handleClick}
+                            handleDisplayClicks={handleResumeDispaly} 
+                            showApplicationTitle={true} />
                     ))
                 }
             </div>
         )
     }
 
+
     return (
         <>
             <Navbar />
             <ReportHeader />
             <div className="candidate-section">
-                <div className="filter-section">
-                    <Filter data={CheckBoxData} updateFilters={updateFilters} customItems={[]} />
-                </div>
+            <Filter data={CheckBoxData} updateFilters={updateFilters} customItems={[]} />
                 <div className="candidate-list-section">
                     { renderCandidates() }
                 </div>
                 {
-                    !resume && (
-                        <div style={{width: "40%", height: "fit-content", margin: "0 auto", backgroundColor: "white"}}>
-                            <Resume showStatusBtn={false} />
+                    (resume && showResume) && (
+                        <div className="resume-component">
+                            <div>
+                                <div className="close-icon" onClick={ () => { setShowResume(false) } }><IoCloseOutline /></div>
+                                <Resume showStatusBtn={false}
+                                    user={resume.candidate}
+                                    educationList={resume.education}
+                                    experienceList={resume.experience}
+                                    projectsList={resume.project}
+                                    skillsList={resume.skills}
+                                />
+                            </div>
                         </div>
                     ) 
                 }

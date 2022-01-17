@@ -1,13 +1,14 @@
 .report-analytics {
     width: 100%;
-    height: 100vh;
+    height: auto;
     overflow: hidden;
     background-color: #f1f1f1;
 }
 
 .analytics-container {
     width: fit-content;
-    height: calc(100vh - 40px);
+    min-height: calc(100vh - 40px);
+    height: fit-content;
     display: block;
     margin: auto;
 }
@@ -79,7 +80,7 @@
     margin: auto;
 }
 
-.analytics-container > section > .section-box {
+.analytics-container > section > .section-box1, .analytics-container > section > .section-box2 {
     display: flex;
     width: 530px;
     align-items: center;
@@ -89,14 +90,225 @@
     border-radius: 2px;
 }
 
-.analytics-container > section > .section-box > .number {
+.analytics-container > section > .section-box1 > .number, .analytics-container > section > .section-box2 > .number {
     font-size: 26px;
     font-weight: 500;
     margin-right: 15px;
 }
 
-.analytics-container > section > .section-box > .name {
+.analytics-container > section > .section-box1 > .name, .analytics-container > section > .section-box2 > .name {
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 1130px) {
+    .report-analytics {
+        padding: 0 15px;
+    }
+
+    .left-prospects > div {
+        width: 200px;
+    }
+
+    .analytics-prospects-graph  > .graph {
+        width: 480px;
+    }
+
+    .analytics-container > section > .section-box1 {
+        width: 430px;
+        padding: 15px;
+    }
+
+    .analytics-container > section > .section-box2 {
+        width: 480px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 968px) {
+    .left-prospects > div > .title > .texts {
+        font-size: 16px;
+    }
+    
+    .left-prospects > div > .number {
+        font-size: 25px;
+    }
+    
+    .left-prospects > div {
+        width: 175px;
+    }
+
+    .analytics-prospects-graph  > .graph {
+        width: 430px;
+    }
+
+    .analytics-container > section > .section-box1 {
+        width: 380px;
+        padding: 15px;
+    }
+
+    .analytics-container > section > .section-box2 {
+        width: 430px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 870px) {
+    .left-prospects > div > .title > .texts {
+        font-size: 14px;
+    }
+    
+    .left-prospects > div > .number {
+        font-size: 20px;
+    }
+    
+    .left-prospects > div {
+        width: 150px;
+        height: 100px;
+    }
+
+    .left-prospects > div > .title > .icon {
+        color: #6400df;
+        width: 35px;
+        height: 35px;
+        background-color: rgba(100, 0, 225, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .analytics-prospects-graph  > .graph {
+        width: 430px;
+        height: 230px;
+        margin-top: 0;
+    }
+
+    .analytics-container > section > .section-box1 {
+        width: 335px;
+        padding: 15px;
+    }
+
+    .analytics-container > section > .section-box2 {
+        width: 430px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 825px) {
+    .analytics-prospects-graph {
+        width: fit-content;
+        display: block;
+        margin: auto;
+    }
+
+    .left-prospects > div > .title > .texts {
+        font-size: 18px;
+    }
+    
+    .left-prospects > div > .number {
+        font-size: 25px;
+    }
+    
+    .left-prospects > div {
+        width: 50%;
+        height: 100px;
+    }
+
+    .left-prospects > div > .title > .icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .analytics-prospects-graph  > .graph {
+        width: 715px;
+        height: 400px;
+        padding: 15px;
+        margin-left: 15px;
+        margin-top: 0;
+    }
+
+    .analytics-container > section > .section-box1, .analytics-container > section > .section-box2 {
+        width: 360px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .analytics-prospects-graph  > .graph {
+        width: 515px;
+        height: 275px;
+    }
+
+    .analytics-container > section {
+        width: calc(90% - 30px);
+        display: block;
+        margin: auto;
+    }
+
+    .analytics-container > section > .section-box1 {
+        width: calc(100% - 15px);
+    }
+
+    .analytics-container > section > .section-box2 {
+        width: calc(100% - 15px);
+        margin-left: 15px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .analytics-prospects-graph  > .graph {
+        width: 415px;
+        height: 225px;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .analytics-container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .prospects {
+        height: fit-content;
+    }
+
+    .left-prospects {
+        display: block;
+    }
+
+    .left-prospects > div {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .analytics-prospects-graph  > .graph {
+        width: 315px;
+        height: 175px;
+        margin-left: 0;
+    }
+
+    .analytics-container > section {
+        width: 100%;
+    }
+
+    .analytics-container > section > .section-box1, .analytics-container > section > .section-box2 {
+        width: calc(100% - 30px);
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .analytics-prospects-graph  > .graph {
+        width: 275px;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .analytics-prospects-graph  > .graph {
+        width: 245px;
+        height: 120px;
+    }
 }

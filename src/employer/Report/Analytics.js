@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router'
 import './analytics.css'
 import Navbar from '../Nav/Navbar'
 import ReportHeader from './ReportHeader'
@@ -7,16 +8,9 @@ import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
 import TrendingUpIcon from '@material-ui/icons/TrendingUp'
 import { Line } from 'react-chartjs-2'
-import Table from './Table'
+/* import Table from './Table' */
+import MuiTable from './MuiTable'
 
-
-
-/*
-
-import data from 'C:/Users/ouatt/Desktop/Bara/Frontend/bara/src/utils/graphData'
-import rows from 'C:/Users/ouatt/Desktop/Bara/Frontend/bara/src/utils/tableData'
-
-*/
 
 const data = {
     labels: ['Jan', 'Mar', 'May', 'July', 'Oct'],
@@ -38,7 +32,18 @@ const data = {
 }
 
 
-function Analytics() {
+function Analytics({ authorized }) {
+    const history = useHistory()
+    
+    useEffect(()=> {
+        authorized()
+            .then(authenticated => {
+                if(!authenticated) {
+                    history.push('/employer/login');
+                }
+            }).catch((e) => console.log(e))
+    }, [])
+
     return (
         <>
             <Navbar />
@@ -86,16 +91,16 @@ function Analytics() {
                         </div>
                     </div>
                     <section>
-                        <div className="section-box" style={{marginLeft: "15px"}}>
+                        <div className="section-box1" style={{marginLeft: "15px"}}>
                             <div className="number">216</div>
                             <div className="name">Interviewed</div>
                         </div>
-                        <div className="section-box">
+                        <div className="section-box2">
                             <div className="number">183</div>
                             <div className="name">Hired</div>
                         </div>
                     </section>
-                    <Table />
+                    {<MuiTable />}
                 </div>
             </div>
         </>    

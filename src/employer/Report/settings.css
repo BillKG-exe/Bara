@@ -59,7 +59,7 @@
 }
 
 .report-settings > form > .upload-box {
-    width: 350px;
+    width: fit-content; /* was 350px*/
     outline: none;
     font-size: 14px;
     border-radius: 50px;
@@ -93,3 +93,20 @@
     height: auto;
 }
 
+@media only screen and (max-width: 1028px)  {
+    .report-settings > form {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 768px)  {
+    .report-settings > form {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 500px)  {
+    .report-settings > form {
+        width: 100%;
+    }
+}

@@ -1,32 +1,35 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import SearchCard from './SearchCard'
 
-function SearchCardList({ list, activeCard }) {
-    const jobs = list
 
-   /*  const handleActiveCard = () => {
-        activeCard("some data")
+function SearchCardList({ list, jobs, getIndex }) {
+    const [activeId, setActiveId] = useState(-1)
+
+    const handleActive = (id) => {
+        setActiveId(id)
+        getIndex(id)
     }
- */
-    /* 
-        Make a function that will load all the data here job lists plus their descriptions
-    */
 
     return (
         <div>
             {
-                jobs.map((job) => (
-                    <div key={job.id} /* onClick={handleActiveCard} */>
+                jobs.map((job, index) => (
+                    <div key={job.jobID}  index={index} onClick={() => {handleActive(job.jobID)} } >
                         <SearchCard 
                             info={{
-                                id: job.id,
-                                compagny: job.compagny,
-                                title: job.title,
-                                logo: job.logo,
-                                salary: job.salary,
+                                id: job.jobID,
+                                compagny: job.companyName,
+                                title: job.jobTitle,
+                                logo: job.companyLogo,
+                                salary: job.jobSalary,
+                                degree: job.degree,
+                                city: job.city,
+                                country: job.country,
                                 skills: job.skills,
-                                date: job.date
+                                date: job.dateOfJobPosted
                             }} 
+                            active={activeId === job.jobID}
                         />
                     </div>
                 ))

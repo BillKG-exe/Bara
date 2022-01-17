@@ -85,3 +85,9 @@
 .candidate-card > .hiring-status > span {
     font-weight: 600;
 }
+
+@media only screen and (max-width: 640px) {
+    .candidate-card {
+        width: 100%;
+    }
+}

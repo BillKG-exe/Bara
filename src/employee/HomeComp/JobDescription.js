@@ -1,56 +1,126 @@
 import React, { useState, useEffect } from 'react'
 import './jobDescription.css'
-import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close'
+import axios from 'axios'
+import moment from 'moment'
 
 
-function JobDescription(props) {
+function JobDescription({ show, hide, jobId}) {
+    const [data, setData] = useState(null)
+    const [loaded, setLoaded] = useState(false)
+    const [qualification, setQualifcation] = useState([])
+    const [requirement, setRequirement] = useState([])
     const [showJobDescription, setShowJobDescription] = useState(false)
+    const [postDate, setPostDate] = useState()
+    const [status, setStatus] = useState(false)
+
+    const getDescription = async () => {
+        const res = await axios.get(`/employee/jobs/${jobId}`)
+        const { job } = res.data
+        
+        setData(job)
+        setQualifcation([...job.qualification.split('/')])
+        setRequirement(job.experience.split('/'))
+    
+        const currentMoment = moment()
+        const pastMoment = moment(job.dateOfJobPosted)
+
+        setPostDate(pastMoment.from(currentMoment))
+    }
+
+    const getAppliedStatus = async (jobId) => {
+        const res = await axios.get(`/employee/application/status/${jobId}`)
+        setStatus(res.data.status)
+    }
 
     useEffect(() => {
-        setShowJobDescription(props.show)
-    });
+        
+        if(jobId) {
+            getDescription()
+            getAppliedStatus(jobId)
+            setLoaded(true)
+        }
+
+        setShowJobDescription(show)
+    }, [jobId]);
 
     const handleShowDescription = () => {
         setShowJobDescription(false)
-        props.hide()
+        hide()
+    }
+
+    const updateAppliedStatus = async e => {
+        setStatus(true)
+        const res = await axios.get(`/employee/add/application/${jobId}`)
     }
 
     return (
-        <div className={showJobDescription? "show-job-desc" : "job-desc"}>
-            <div className="job-desc-close-icon">
-                <CloseIcon onClick={handleShowDescription} />
-            </div>
-            <div className="company-header">
-                <img src={process.env.PUBLIC_URL + '/img/google.png'} alt={"company logo"} />
-                <div className="company-name">GOOGLE Inc</div>
-            </div>
-            <div className="company-job-desc">
-                <div className="desc-title">Descrition</div>
-                <div className="desc-content">
-                    Apply sound engineering principles and state-of-the-art methodologies in the development, testing and documentation of products and manufacturing systems. As a systems engineer intern you will apply your engineering knowledge to assist HummingbirdEV’s development, testing, data logging and documentation efforts.
+        (jobId && data)? (
+            <div className={showJobDescription? "show-job-desc" : "job-desc"}>
+                <div className="job-desc-close-icon">
+                    <CloseIcon onClick={handleShowDescription} />
+                </div>
+                <div className="company-header">
+                    <img src={data.companyLogo} alt={"company logo"} />
+                    <div>
+                        <div className='company-name-desc'>{data.companyName}</div>
+                        <div className='location-type'>
+                            <em className='position-location'>{data.city +", "+ data.country}</em>
+                            <div>•</div>
+                            <div>{data.jobType}</div>
+                            <div>•</div>
+                            {<div>{postDate}</div>}
+                        </div>
+                        <div className='company-position'>{data.jobTitle}</div>
+                        {
+                            !status? (
+                                <div className="apply-btn" onClick={updateAppliedStatus}><button>Apply</button></div>
+                            ) : (
+                                <div className='applied-status'>You have applied to this job</div>
+                            )
+                        }
+                    </div>
+                </div>
+                {
+                    data.description &&
+                        <div className="company-job-desc">
+                            <div className="desc-title">Descrition</div>
+                            <div className="desc-content">
+                                { data.description }
+                            </div>
+                        </div>
+                }
+                {
+                    data.qualification &&
+                        <div className="company-job-qualification">
+                            <div className="qualification-title">Qualification</div>
+                            <ul className="qualification-content"> 
+                               { 
+                                    qualification.map((q, index) => (
+                                        <div key={Math.random() * 100}>
+                                            { q && <li>{q}</li> }
+                                        </div>
+                                    )) 
+                               }
+                            </ul>
+                        </div>
+                }
+                <div className="company-job-requirement">
+                    <div className="requirement-title">Requirement</div>
+                    <ul className="requirement-content">
+                        { 
+                            requirement.map((q, index) => (
+                                <div key={Math.random() * 100}>
+                                    { q && <li>{q}</li> }
+                                </div>
+                            )) 
+                        }
+                    </ul>
                 </div>
             </div>
-            <div className="company-job-qualification">
-                <div className="qualification-title">Qualification</div>
-                {/* make the qualifications a list*/}
-                <div className="qualification-content"> 
-                    Excellent knowledge of vehicle communication protocol and vehicle EE architecture.
-
-                    Familiar with vehicle network and diagnostic solution development and evaluation tools (CANoe, CANalyzer, etc.)
-
-                    Experience with Software: C,C++, Matlab/Simulink, CANdb++ Editor.
-                </div>
-            </div>
-            <div className="company-job-requirement">
-                <div className="requirement-title">Requirement</div>
-                <div className="requirement-content">
-                    Good analytical and problem-solving skills
-                    Strong written and verbal communication skills
-                    Ability to Document a Technical Issue for escalation
-                    Customer Service and Relationship Management
-                </div>
-            </div>
-        </div>
+        ) : (
+            <div></div>
+        )
     )
 }
 

@@ -1,21 +1,36 @@
 import './CustomSectionCard.css' 
 import { FiEdit2 } from 'react-icons/fi'
-//import { VscTrash } from 'react/icons/vsc'
 import { IoMdTrash } from 'react-icons/io'
+import axios from 'axios'
 
-const CustomSectionCard = () => {
+
+const CustomSectionCard = ({ id, index, type, name, title, location, degree, major, startingDate, endingDate, editsHandler, deleteItem }) => {
+    const handleEdits = e => {
+        editsHandler(index)
+    }
+
+    const handleDelete = e => {
+        axios.get(`/employee/delete/${type}/${id}`)
+        .then(response => {}, (error) => {
+            console.log(error)
+        });
+
+        deleteItem(index)
+    } 
+
     return (
         <div className="custom-section-card">
             <div className="header-options">
-                <div className="title">University of California Berkeley</div>
+                <div className="title">{name}</div>
                 <div className="options-icons">
-                    <div className="icon"><FiEdit2 /></div>
-                    <div className="icon"><IoMdTrash /></div>
+                    <div className="icon"><FiEdit2 onClick={handleEdits} /></div>
+                    <div className="icon"><IoMdTrash onClick={handleDelete} /></div>
                 </div>
             </div>
-            <div className="position">Bachelor of Science - Electrical Engineering and Computer Sience</div>
-            <div className="date">2022 - 2024</div>
-            <div className="location"></div>
+            { type === "education" && (<div className="position">{degree? degree + " - " : ""}{major}</div>) }
+            { type !== "education" && (<div>{title}</div>) }
+            <div className="date">{startingDate} - {endingDate}</div>
+            <div className="location">{location}</div>
         </div>
     )
 }

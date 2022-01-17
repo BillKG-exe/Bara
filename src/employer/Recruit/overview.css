@@ -1,0 +1,77 @@
+.overview-container {
+    width: 35%;
+    height: 700px;/*calc(100vh - 40%);*/
+    padding: 15px;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.overview-container > img {
+    display: block;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    margin: 25px auto;
+}
+
+.overview-container > .company-name {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.overview-container > .job-tile {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.overview-container > .location {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.overview-container > .degree {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 5px
+}
+
+.overview-container > .description{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.overview-container > .description-text {
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.overview-container > .list {
+    padding-left: 30px;
+}
+
+@media only screen and (max-width: 1050px) {
+    .overview-container {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .overview-container {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .overview-container {
+        width: 90%;
+    }
+}

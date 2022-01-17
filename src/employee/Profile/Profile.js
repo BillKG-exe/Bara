@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './profile.css'
-import ProfileSideBar from './ProfileSideBar'
 import ProfileMainContent from './ProfileMainContent'
-import NavigationBar from '../HomeComp/NavigationBar'
-import { Redirect } from 'react-router-dom'
+import SideNavigationBar from './SideNavigationBar'
+import { withRouter } from 'react-router';
+
 
 export class Profile extends Component {
     constructor(props) {
@@ -12,9 +12,17 @@ export class Profile extends Component {
         this.state = {
             mainContentTitle: "SETTINGS",
             showSideNavigation: false,
-            authorized: props.authorized
+            authorized: 'props.authorized'
         }
-        //console.log('authorized: ',this.state.authorized)
+    }
+
+    componentDidMount() {
+        this.props.authorized()
+            .then(authenticated => {
+                if(!authenticated) { 
+                    this.props.history.push('/signin');
+                }
+            }).catch((e) => console.log(e))
     }
 
     handleNavigation = (title) => {
@@ -30,20 +38,13 @@ export class Profile extends Component {
     }
 
     render() {
-        if(!this.state.authorized) {
-            return <Redirect to="/signIn" />
-        }
-
         return (
             <div className='profile-page'>
-                <ProfileSideBar navigation={this.handleNavigation} showNav={this.state.showSideNavigation} />
+                <SideNavigationBar navigation={this.handleNavigation} showNav={this.state.showSideNavigation} />
                 <ProfileMainContent title={this.state.mainContentTitle} toggleSideNav={this.handleSideNavToggle} />
-                <div className="navigation-bar">
-                    <NavigationBar />
-                </div>
             </div>
         )
     }
 }
 
-export default Profile
+export default withRouter(Profile)

@@ -183,6 +183,30 @@ input::-ms-reveal, input::-ms-clear {
     transition-duration: .4s;
 }
 
+.remember-container {
+    width: 300px;
+    font-size: 14px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remember-container > .check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forgot-msg {
+    color: black;
+}
+
+.forgot-msg:hover {
+    text-decoration: underline;
+}
+
+
 /* .error {
     display: block;
     width: 300px;

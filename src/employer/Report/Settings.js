@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router'
 import './settings.css'
 import Alert from '@material-ui/lab/Alert'
-import Validator from 'C:/Users/ouatt/Desktop/Bara/Frontend/bara/src/utils/validator' 
+import Validator from '../../utils/validator' 
+import axios from 'axios'
 
-const text = "Say\nHello\nTo\nMy\nLittle\nFriend"
 
 export class Settings extends Component {
     constructor(props) {
@@ -14,6 +15,10 @@ export class Settings extends Component {
             name: null,
             title: null,
             email: null,
+            address: null,
+            city: null,
+            country: null,
+            about: null,
             currentPassword: null,
             newPassword: null,
             companyLogo: {
@@ -24,6 +29,31 @@ export class Settings extends Component {
         };
     }
 
+
+
+    async componentDidMount() {
+        try {
+            const response = await axios.get('/employer/profile')
+
+            const data = response.data.profile
+
+            if(!response.data.authenticated) {
+                this.props.history.push('/employer/login')
+            }
+
+            this.setState({
+                companyName: data.employerCompanyName,
+                name: data.employerName,
+                title: data.employerJobTitle,
+                email: data.employerEmail, 
+                about: data.employerAbout
+            })
+
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     setErrorMsg = (msg) => {
         this.setState({
             errorMsg: msg
@@ -32,7 +62,7 @@ export class Settings extends Component {
 
     handleChange = (e) => {
         this.setState({
-            [e.target.id]: [e.target.value]
+            [e.target.id]: e.target.value
         })
         
         let validator = new Validator()
@@ -44,10 +74,9 @@ export class Settings extends Component {
         } else {
             this.setErrorMsg(null)
         }
-        /* console.log(e.target.id, "-> ", e.target.value) */
     }
 
-    handleFileUpload = e => {
+    handleFileUpload = async e => {
         if(e.target.files.length) {
             this.setState({
                 companyLogo: {
@@ -55,12 +84,23 @@ export class Settings extends Component {
                     raw: e.target.files[0]
                 }
             })
-            //console.log(e.target.files)
+
+            const form = new FormData()
+
+            form.append('icon', e.target.files[0], e.target.files[0].name)
+
+            axios.post('/employer/upload/icon', form)
         }
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
+
+        this.setState({ errorMsg: '' })
+
+        const response = await axios.post('/employer/profile', this.state)
+
+        console.log(response)
     }
 
     render() {
@@ -72,24 +112,46 @@ export class Settings extends Component {
                         id="companyName" 
                         type="text"
                         placeholder="Company Name"
+                        defaultValue={this.state.companyName}
                         onChange={this.handleChange}
                     />
                     <input 
-                        id="employerName"
+                        id="name"
                         type="text"
                         placeholder="Employer's Name"
+                        defaultValue={this.state.name}
                         onChange={this.handleChange}
                     />
                     <input 
-                        id="employerTitle"
+                        id="title"
                         type="text"
                         placeholder="Employer's Title"
+                        defaultValue={this.state.title}
+                        onChange={this.handleChange}
+                    />
+                    <input 
+                        id="address"
+                        type="text"
+                        placeholder="Address de Rue"
+                        onChange={this.handleChange}
+                    />
+                    <input 
+                        id="city"
+                        type="text"
+                        placeholder="City"
+                        onChange={this.handleChange}
+                    />
+                    <input 
+                        id="country"
+                        type="text"
+                        placeholder="Country"
                         onChange={this.handleChange}
                     />
                     <input 
                         id="email"
                         type="email"
                         placeholder="Email"
+                        defaultValue={this.state.email}
                         onChange={this.handleChange}
                     />
                     <input 
@@ -114,8 +176,10 @@ export class Settings extends Component {
                         multiple={false}
                     />
                     <textarea 
+                        id="about"
                         placeholder="About us"
-                        /* value={text} */
+                        defaultValue={this.state.about}
+                        onChange={this.handleChange}
                     />
                     <div className="uploaded-img-preview">
                         { this.state.companyLogo.preview && (<img src={this.state.companyLogo.preview} alt="" />) }
@@ -124,11 +188,11 @@ export class Settings extends Component {
                     { this.state.errorMsg && 
                         (<Alert severity="error">{this.state.errorMsg}</Alert>) }
                     </div>
-                    <button>Save</button>
+                    <button style={{cursor: 'pointer'}} onClick={this.handleSubmit}>Save</button>
                 </form>
             </div>
         )
     }
 }
 
-export default Settings
+export default withRouter(Settings)

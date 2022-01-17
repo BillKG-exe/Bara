@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: center;
     max-width: 500px;
-    height: 115px;
+    min-height: 115px;
+    height: fit-content;
     margin: 15px auto;
     background-color: white;
 }

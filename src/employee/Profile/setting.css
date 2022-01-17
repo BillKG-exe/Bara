@@ -182,3 +182,16 @@
     background-color: #6400e1;
 }
 
+@media only screen and (max-width: 440px) { 
+    .setting-form {
+        width: 95%;
+    }
+    
+    .setting-update-btn {
+        display: block;
+        width: 90%;
+        padding: 15px 35px;
+        margin: auto;
+        margin-bottom: 40px;
+    }
+}

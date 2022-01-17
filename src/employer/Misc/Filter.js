@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './filter.css'
 import CheckBox from '../Misc/CheckBox'
+import { IoIosOptions } from 'react-icons/io'
+import { IoCloseOutline } from 'react-icons/io5'
+/* import Table from '@material-ui/core/table' */
 
 function sortTypes(array) {
     let categories = []
@@ -34,22 +37,18 @@ function cleanData(type, data) {
 
 function Filter({ data, updateFilters, customItems }) {
     const [filters, setFilters] = React.useState([])
-
-    //var filters = []
+    const [isFilterIconClicked, setIsFilterIconClicked] = useState(false)
 
     const addFilter = (name, checked) => {
         const newFilter = [...filters]
 
         if(checked) {
             newFilter.push(name)
-            //filters.push(name)
         } else {
             newFilter.splice(filters.indexOf(name), 1)
-            //filters.splice(filters.indexOf(name), 1)
         }
 
         setFilters(newFilter)
-       /*  updateFilters([...filters]) */
        updateFilters(newFilter)
     }
     
@@ -126,12 +125,23 @@ function Filter({ data, updateFilters, customItems }) {
     }
     
     return (
-        <div className="filter">
-            { renderCategories() }
-            { renderJobTitles() }
-            { renderEducation() }
-            { renderCustomItems() }
-        </div>
+        <>
+            <div className={!isFilterIconClicked? "filter-item-list" : "filter-item-list-show"}>         
+                { renderCategories() }
+                { renderJobTitles() }
+                { renderEducation() }
+                { renderCustomItems() }
+            </div>
+            <div className="filter-toggle-btn" onClick={() => setIsFilterIconClicked(!isFilterIconClicked)}>
+                {
+                    !isFilterIconClicked? (
+                        <IoIosOptions />
+                    ) : (
+                        <IoCloseOutline />
+                    )
+                }
+            </div>
+        </>
     )
 }
 

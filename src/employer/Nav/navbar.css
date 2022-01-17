@@ -37,7 +37,7 @@
     transition-duration: 0.4s;
 }
 
-.mobile-login, .mobile-register {
+.mobile {
     display: none;
 }
 
@@ -81,4 +81,74 @@
 
 .company-responsive-mobile-btn {
     display: none;
+}
+
+.employer-logout-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 25px;
+}
+
+.employer-logout-icon:hover > .text {
+    text-decoration: underline;
+}
+
+.employer-logout-icon > .icon, .employer-logout-icon > .text {
+    color: #6400e1;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 640px) {
+    .company-navigation-bar {
+        position: sticky;
+        top: 0;
+        background-color: #6400e1;
+    }
+
+    .bara-company-logo {
+        color: white;
+    }
+
+    .company-navbar-auth-btn {
+        display: none;
+    }
+
+    .company-navigation-links, .company-navigation-links-responsive {
+        position: absolute;
+        top: 55px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 55px);
+        display: block;
+        background-color: white;
+        transition-duration: 0.2s;
+    }
+
+    .company-navigation-links-responsive {
+        left: 0;
+        transition-duration: 0.4s;
+    }
+
+    .company-link {
+        color: #111;
+        font-size: 16px;
+        text-align: center;
+        padding: 6px 12px;
+        margin: 25px auto;
+        border-bottom: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .company-responsive-mobile-btn {
+        color: white;
+        display: block;
+        padding-right: 15px;
+    }
 }

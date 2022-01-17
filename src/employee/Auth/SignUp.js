@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router';
 import Header from '../HeaderComponent/Header'
-import Validator from "C:/Users/ouatt/Desktop/Bara/Frontend/bara/src/utils/validator";
+import Validator from "../../utils/validator";
 import './signUp.css'
 import { MdEmail } from 'react-icons/md'
 import { IoMdLock, IoMdEye, IoMdEyeOff } from 'react-icons/io'
-import Error from '../customTags/Error'
 import Alert from '@material-ui/lab/Alert'
 import axios from 'axios'
-
+import jwt from 'jsonwebtoken'
 
 export class signUp extends Component {
     constructor(props) {
@@ -30,6 +30,15 @@ export class signUp extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.authorized()
+            .then(authenticated => {
+                if(authenticated) { 
+                    this.props.history.push('/');
+                }
+            }).catch((e) => console.log(e))
+    }
+
     setErrorMsg = (msg) => {
         this.setState({
             errorMsg: msg
@@ -43,7 +52,6 @@ export class signUp extends Component {
             [e.target.id]: e.target.value
         })
 
-        //console.log(this.state)
         let validator = new Validator();
         
         if(e.target.id === "name" && !validator.isValidName(e.target.value)) {
@@ -84,30 +92,32 @@ export class signUp extends Component {
         })
     } 
 
-    handleSubmit = (e) => {
+    handleSubmit = async (e) => {
         e.preventDefault()
         
         if(!this.state.name || !this.state.email || !this.state.password1 || !this.state.password2) {
             this.setErrorMsg("Please fill out all the form")
-            console.log('empty')
         } else if(this.state.password1 !== this.state.password2) {
             this.setErrorMsg("The passwords do not match")
         } else {
+            const token = jwt.sign({password: this.state.password1}, "secret")
+            
             const user = {
                 name: this.state.name,
                 email: this.state.email,
-                password: this.state.password1
+                password: token
             }
     
-            axios.post('http://localhost:8000/api/register', user)
+            axios.post('/employee/register', user)
               .then((response) => {
-                if(response.status === 200) {
+                if(response.data.success) {
                     this.props.history.push('/profile')
+                } else {
+                    this.setErrorMsg(response.data.message)
                 }
               }, (error) => {
                 console.log(error);
               });
-            //console.log(user)
         }
     }
     
@@ -208,4 +218,4 @@ export class signUp extends Component {
     }
 }
 
-export default signUp
+export default withRouter(signUp)

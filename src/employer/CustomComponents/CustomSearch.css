@@ -1,4 +1,4 @@
-.custom-search-component {
+/* .custom-search-component {
     width: 100%;
     height: fit-content;
     margin: 20px 0;
@@ -35,4 +35,84 @@ input::-ms-reveal, input::-ms-clear {
     background-color: #6400e1;
     border: none;
     border-radius: 5px;
+} */
+
+.custom-search-component {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    margin: auto;
+    margin-top: 5px;
+    background-color: #f0f0f0;
+}
+
+ .custom-search-component > div {
+    display: block;
+    width: 40%;
+    margin: 15px 0;
+}
+
+.custom-search-component > div > input {
+    display: block;
+    width: 90%;
+    height: 40px;
+    padding-left: 15px;
+    margin: auto;
+    background-color: #f0f0f0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+input::-ms-reveal, input::-ms-clear {
+    display: none;
+}
+
+.custom-search-component > button {
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    height: 40px;
+    padding: 10px 15px;
+    margin: auto 10px;
+    color: white;
+    background-color: #6400e1;
+    border: none;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 1010px) {
+    .custom-search-component {
+        width: 65%;
+        display: block;
+    }
+
+    .custom-search-component > div {
+        width: 100%;
+    }
+
+    .custom-search-component > button {
+        width: calc(100% - 30px);
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+    .custom-search-component {
+        width: 95%;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .custom-search-component {
+        width: 100%;
+        display: block;
+    }
+
+    .custom-search-component > div > input {
+        display: block;
+        margin: auto;
+    }
 }

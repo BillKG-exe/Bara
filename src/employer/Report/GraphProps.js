@@ -50,8 +50,7 @@ const options = {
     },
 }
 
-/* console.log(data, options)
- */
+
 const props = [{
     data: data, 
     options: options
