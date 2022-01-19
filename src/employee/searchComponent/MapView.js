@@ -21,7 +21,7 @@ function MapView(props) {
     return (
         <div className={props.className}>
             <Map
-                bootstrapURLKeys={{ key:"AIzaSyCN453lSDjzXeraKsnqWHIkas9sQAFvJTU" }}
+                bootstrapURLKeys={{ key:"API_KEY_HERE" }}
                 defaultCenter={{lat:12.371535, lng:-1.5199175}}
                 defaultZoom={13}    
                 /* google="" */ >
